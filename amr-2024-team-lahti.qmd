@@ -1,0 +1,15 @@
+---
+title: "NCBI amr 2024"
+execute:
+  warning: false
+---
+
+## Definition
+
+
+
+## Data types
+
+
+
+## Data availablity
