@@ -1,52 +1,106 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# teamlahti
+# Resistome data analysis
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of teamlahti is to …
+List of participants and affiliations:
 
-## Installation
+- Leo Lahti (Team lead)
+- Nitin Bayal
+- Shivang Bhanushali
+- Pande Putu Erawijantari
+- Akewak Jeba
+- Dattatray Mongad
+- Geraldson Teneng Muluh
+- Mahkameh Salehi
 
-You can install the development version of teamlahti from
-[GitHub](https://github.com/) with:
+## Project Goals
 
-``` r
-# install.packages("pak")
-pak::pak("NCBI-Codeathons/amr-2024-team-lahti")
-```
+- Prepare the Lee et al. (2023) data set for analysis in R/Bioc and
+  provide sufficient documentation in the Github repository.
 
-## Example
+- Create minimal website for this project using pkgdown
 
-This is a basic example which shows you how to solve a common problem:
+- Prepare summary of the data set to be presented on a slide set
 
-``` r
-# library(teamlahti)
-## basic example code
-```
+- Create tutorial on resistome data analysis using the latest
+  R/Bioconductor methods and release them via the Github repository
+  (vignettes/ subfolder)
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+- Provide exploratory summaries of the data set using R/Bioc methods
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
-```
+- Replicate of some key results from the manuscript using R/Bioconductor
+  methods to verify the data
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
+- Consider automation of specific analysis or visualization methods as
+  functions that can be share via new R pkg, or existing packages
 
-You can also embed plots, for example:
+- Polish the data analysis workflow/s & documentation so that they can
+  be used as training material on resistome analyses using
+  R/Bioconductor
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+## Approach
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+### Tasks
+
+1.  Everyone - read the
+    [publication](https://www.nature.com/articles/s41467-023-36633-7)
+    and explore the R data
+    (<https://github.com/microbiome/data/tree/main/Lee2023>)
+
+2.  Leo (antagomir - conveys scientific objetives and coordinates tasks)
+
+3.  Muluh (Daenarys8 - coordinates software installation and data
+    acquisition, manages version control and the team’s GitHub
+    repository, troubleshoots technical issues with tech support)
+
+    1.  Migrate the data to the codeathon repo data/ subfolder
+    2.  Create minimal website for this project using pkgdown
+
+4.  Nitin (nixonbyl) ensures that all work is documented, manages GitHub
+    README and Team Report
+
+    1.  Prepare flow diagram & README in codeathon repo (see “overall
+        plan” above)
+
+5.  Datta (microDM) ensures that all work is documented, manages GitHub
+    README and Team Report
+
+    1.  Compile 3 minute presentation about the plans & present in the
+        evening
+    2.  Use the flow diagram (from Nitin), and data set summary (from
+        Mahkameh)
+
+6.  Jeba (ake123; coordinates software installation and data
+    acquisition, manages version control and the team’s GitHub
+    repository, troubleshoots technical issues with tech support)
+
+    1.  Support Muluh in the tasks listed above (but he can coordinate)
+
+7.  Mahkameh fills various roles and assumes responsibilities for tasks
+    as needed
+
+    1.  Prepare a short summary of a few slides on the study and data
+        set to be presented on a slide set
+
+8.  Shivang (ShivangPB) fills various roles and assumes responsibilities
+    for tasks as needed
+
+    1.  Support Mahkameh in preparing the data set summary
+
+## Results
+
+## Future Work
+
+## NCBI Codeathon Disclaimer
+
+This software was created as part of an NCBI codeathon, a
+hackathon-style event focused on rapid innovation. While we encourage
+you to explore and adapt this code, please be aware that NCBI does not
+provide ongoing support for it.
+
+For general questions about NCBI software and tools, please visit: [NCBI
+Contact Page](https://www.ncbi.nlm.nih.gov/home/about/contact/)
