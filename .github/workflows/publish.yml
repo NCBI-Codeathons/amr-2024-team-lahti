@@ -30,7 +30,7 @@ jobs:
       - name: Install rmarkdown
         run: Rscript -e 'install.packages("rmarkdown")'
         
-      - name: Install eurostat
+      - name: Install mia
         run: Rscript -e 'install.packages("mia",  dependencies = TRUE)'
         
       - name: Install tidyverse
