@@ -31,17 +31,11 @@ jobs:
         run: Rscript -e 'install.packages("rmarkdown")'
         
       - name: Install eurostat
-        run: Rscript -e 'install.packages("eurostat",  dependencies = TRUE)'
+        run: Rscript -e 'install.packages("mia",  dependencies = TRUE)'
         
       - name: Install tidyverse
         run: Rscript -e 'install.packages("tidyverse",  dependencies = TRUE)'
-        
-      - name: Install ggplot2
-        run: Rscript -e 'install.packages("ggplot2",  dependencies = TRUE)'
-        
-      - name: Install retroharmonize
-        run: Rscript -e 'install.packages("retroharmonize",  dependencies = TRUE)'
-        
+     
       - name: Render and Publish quarto
         uses: quarto-dev/quarto-actions/publish@v2
         with:
