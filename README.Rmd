@@ -1,6 +1,6 @@
 ---
 output: github_document
----
+--- 
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -34,7 +34,7 @@ pak::pak("NCBI-Codeathons/amr-2024-team-lahti")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-library(teamlahti)
+# library(teamlahti)
 ## basic example code
 ```
 
