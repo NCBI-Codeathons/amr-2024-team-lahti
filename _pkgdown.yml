@@ -21,7 +21,7 @@ navbar:
       -  text: Installation
          href: https://github.com/NCBI-Codeathons/amr-2024-team-lahti
       -  text: Data summary
-         href: ../vignettes/data_summary.html
+         href: articles/data_summary.html
     - text: "faq"
       icon: fa-question-circle-o
       href: articles/index.html
