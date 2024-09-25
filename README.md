@@ -14,16 +14,21 @@ GitHub](https://img.shields.io/github/watchers/NCBI-Codeathons/amr-2024-team-lah
 GitHub](https://img.shields.io/github/stars/NCBI-Codeathons/amr-2024-team-lahti.svg?style=social)](https://github.com/NCBI-Codeathons/amr-2024-team-lahti/stargazers)
 <!-- badges: end -->
 
-List of participants and affiliations:
+## Team roles
 
-- Leo Lahti (Team lead)
-- Nitin Bayal
-- Shivang Bhanushali
-- Pande Putu Erawijantari
-- Akewak Jeba
-- Dattatray Mongad
-- Geraldson Teneng Muluh
-- Mahkameh Salehi
+- *Team Lead / Leo (antagomir)* Conveys scientific objectives to the
+  team, and coordinates work.
+
+- *Tech Lead / Jeba (ake123) & Muluh (Daenarys8)* Coordinates software
+  installation and data acquisition, manages version control and the
+  team’s GitHub repository, troubleshoots technical issues with tech
+  support
+
+- *Writer / Datta (microDM), Nitin (nixonbyl)* Ensures that all work is
+  documented, manages GitHub README and Team Report
+
+- *Flex / Mahkameh (mahkamehsalehi), Shivang (ShivangPB)* Fills various
+  roles and assumes responsibilities for tasks as needed
 
 ## Project Goals
 
@@ -51,53 +56,6 @@ List of participants and affiliations:
   R/Bioconductor
 
 ## Approach
-
-### Tasks
-
-1.  Everyone - read the
-    [publication](https://www.nature.com/articles/s41467-023-36633-7)
-    and explore the R data
-    (<https://github.com/microbiome/data/tree/main/Lee2023>)
-
-2.  Leo (antagomir - conveys scientific objetives and coordinates tasks)
-
-3.  Muluh (Daenarys8 - coordinates software installation and data
-    acquisition, manages version control and the team’s GitHub
-    repository, troubleshoots technical issues with tech support)
-
-    1.  Migrate the data to the codeathon repo data/ subfolder
-    2.  Create minimal website for this project using pkgdown
-
-4.  Nitin (nixonbyl) ensures that all work is documented, manages GitHub
-    README and Team Report
-
-    1.  Prepare flow diagram & README in codeathon repo (see “overall
-        plan” above)
-
-5.  Datta (microDM) ensures that all work is documented, manages GitHub
-    README and Team Report
-
-    1.  Compile 3 minute presentation about the plans & present in the
-        evening
-    2.  Use the flow diagram (from Nitin), and data set summary (from
-        Mahkameh)
-
-6.  Jeba (ake123; coordinates software installation and data
-    acquisition, manages version control and the team’s GitHub
-    repository, troubleshoots technical issues with tech support)
-
-    1.  Support Muluh in the tasks listed above (but he can coordinate)
-
-7.  Mahkameh fills various roles and assumes responsibilities for tasks
-    as needed
-
-    1.  Prepare a short summary of a few slides on the study and data
-        set to be presented on a slide set
-
-8.  Shivang (ShivangPB) fills various roles and assumes responsibilities
-    for tasks as needed
-
-    1.  Support Mahkameh in preparing the data set summary
 
 ## Results
 
