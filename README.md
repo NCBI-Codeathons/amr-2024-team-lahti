@@ -52,12 +52,13 @@ complementary data analysis and visualization methods. The outcomes are
 reported via an automated pkgdown website.
 
 <figure>
-<img src="./docs/workflow.jpeg" alt="Workflow of proposed framework" />
+<img src="docs/articles/images/workflow.jpeg"
+alt="Workflow of proposed framework" />
 <figcaption aria-hidden="true">Workflow of proposed
 framework</figcaption>
 </figure>
 
-[Standout presentation](./docs/standouts/standout-day1.odp)
+[Standout presentation](/standouts/standout-day1.odp)
 
 ## Overall analysis plan
 

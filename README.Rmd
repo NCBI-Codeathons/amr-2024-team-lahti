@@ -57,9 +57,9 @@ the context of resistome profiling in large population studies. This covers
 dedicated data structures and the complementary data analysis and visualization 
 methods. The outcomes are reported via an automated pkgdown website.
 
-![Workflow of proposed framework](./docs/workflow.jpeg)
+![Workflow of proposed framework](docs/articles/images/workflow.jpeg)
 
-[Standout presentation](./docs/standouts/standout-day1.odp)
+[Standout presentation](/standouts/standout-day1.odp)
 
 ## Overall analysis plan
 1. _Prepare data_ 

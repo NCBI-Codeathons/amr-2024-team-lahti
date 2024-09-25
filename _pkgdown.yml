@@ -22,6 +22,10 @@ navbar:
          href: https://github.com/NCBI-Codeathons/amr-2024-team-lahti
       -  text: Data summary
          href: articles/data_summary.html
+      -  text: Presentation 9.24.24
+         href: articles/standout_presentation.html
+      -  text: Transcripts 9.24.24
+         href: articles/standout_transcripts.html
     - text: "faq"
       icon: fa-question-circle-o
       href: articles/index.html
