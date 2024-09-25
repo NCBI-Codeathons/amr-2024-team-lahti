@@ -18,7 +18,7 @@
     "href": "data_summary.html#data-source",
     "title": "Data Summary",
     "section": "Data Source",
-    "text": "Data Source\n\nThe data used comes from the study titled “Population-level impacts of antibiotic usage on the human gut microbiome”, published in Nature Communications in 2023 by Lee et al. This large-scale study includes a total of 9,251 samples collected from various human body sites and countries, aiming to assess the impact of antibiotic usage on the human gut microbiome."
+    "text": "Data Source\n\nThe data used comes from the study titled “Population-level impacts of antibiotic usage on the human gut microbiome”, published in Nature Communications in 2023 by Lee et al. This large-scale study includes a total of 9,251 samples collected from various human body sites and countries."
   },
   {
     "objectID": "standout_presentation.html#metagenomics-workflow",
@@ -47,5 +47,12 @@
     "title": "Data Summary",
     "section": "Methods: Data Collection & Compilation",
     "text": "Methods: Data Collection & Compilation\n\nManually curated ARG families from CARD database (n=752)   \n6104 adult gut metagenome samples from 20 countries after refinning\ncuratedMetagenomeData R package for retrieving the sample metadata\nRaw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download\nMetagenomic assemblies retrieved from Pasolli et al."
+  },
+  {
+    "objectID": "data_summary.html#aims-of-the-study",
+    "href": "data_summary.html#aims-of-the-study",
+    "title": "Data Summary",
+    "section": "Aims of the study",
+    "text": "Aims of the study\nThe study investigates how antibiotic consumption affects the abundance and diversity of antibiotic resistance genes (ARGs) in the human gut microbiome across different populations.\nBy analyzing 8,972 metagenomic samples from healthy individuals who were not taking antibiotics, correlations between per capita antibiotic usage rates and the prevalence of ARGs in different countries was identified.\nThe study also explores the how resistance genes are transferred among microbial species, identifies distinct resistotypes within the human gut microbiome, and assesses how these factors contribute to the overall resistome."
   }
 ]

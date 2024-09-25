@@ -10,13 +10,21 @@ format:
     transition: slide
 ---
 
-## Data Source
+## Data Source  {.smaller}
 
 ![](images/Capture.PNG)
 
-The data used comes from the study titled "Population-level impacts of antibiotic usage on the human gut microbiome", published in Nature Communications in 2023 by Lee et al. This large-scale study includes a total of 9,251 samples collected from various human body sites and countries, aiming to assess the impact of antibiotic usage on the human gut microbiome.
+The data used comes from the study titled "Population-level impacts of antibiotic usage on the human gut microbiome", published in Nature Communications in 2023 by Lee et al. This large-scale study includes a total of 9,251 samples collected from various human body sites and countries.
 
-## Sample Distribution by Body Site
+## Aims of the study  {.smaller}
+
+The study investigates how antibiotic consumption affects the abundance and diversity of antibiotic resistance genes (ARGs) in the human gut microbiome across different populations.
+
+By analyzing 8,972 metagenomic samples from healthy individuals who were not taking antibiotics, correlations between per capita antibiotic usage rates and the prevalence of ARGs in different countries was identified.
+
+The study also explores the how resistance genes are transferred among microbial species, identifies distinct resistotypes within the human gut microbiome, and assesses how these factors contribute to the overall resistome.
+
+## Sample Distribution by Body Site  {.smaller}
 
 The dataset comprises samples from six major body sites, with the distribution as follows:
 
@@ -64,7 +72,7 @@ ggplot(body_site_data, aes(x = Number_of_Samples, y = Body_Site)) +
   coord_cartesian(clip = "off")
 ```
 
-## Sample Distribution by Country
+## Sample Distribution by Country {.smaller}
 
 The study collected samples from individuals across multiple countries.
 
@@ -116,7 +124,7 @@ ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
   coord_cartesian(clip = "off")
 ```
 
-## Methods: Data Collection & Compilation
+## Methods: Data Collection & Compilation  {.smaller}
 
 -   Manually curated ARG families from CARD database (n=752)   
 
