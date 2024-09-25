@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Resistome data analysis
+# Antimicrobial resistome data analysis with R/Bioconductor
 
 
 <!-- badges: start -->
@@ -28,46 +28,50 @@ GitHub](https://img.shields.io/github/stars/NCBI-Codeathons/amr-2024-team-lahti.
 
 ## Team roles
 
-* _Team Lead / Leo (antagomir)_
+* __Team Lead__ / [Leo Lahti](https://github.com/antagomir)
 Conveys scientific objectives to the team, and coordinates work.
 
-* _Tech Lead / Jeba (ake123) & Muluh (Daenarys8)_
-Coordinates software installation and data acquisition, manages version control and the team’s GitHub repository, troubleshoots technical issues with tech support
+* __Tech Lead__ / [Akewak Jeba](https://github.com/ake123) & [Muluh Geraldson](https://github.com/Daenarys8)
+Coordinates software installation and data acquisition, manages version control 
+and the team’s GitHub repository, troubleshoots technical issues with tech support
 
-* _Writer / Datta (microDM), Nitin (nixonbyl)_
+* __Writer__ / [Dattaray Mongad](https://github.com/microDM) & [Nitin Bayal](https://github.com/nixonbyl)
 Ensures that all work is documented, manages GitHub README and Team Report
 
-* _Flex / Mahkameh (mahkamehsalehi), Shivang (ShivangPB)_
+* __Flex__ / [Mahkameh Salehi](https://github.com/mahkamehsalehi) & [Shivang](https://github.com/ShivangPB)
 Fills various roles and assumes responsibilities for tasks as needed
 
 ## Project Goals
 
-* Prepare the Lee et al. (2023) data set for analysis in R/Bioc and provide sufficient documentation in the Github repository. 
-
-* Create minimal website for this project using pkgdown 
-* Prepare summary of the data set to be presented on a slide set
-
-* Create tutorial on resistome data analysis using the latest R/Bioconductor methods and release them via the Github repository (vignettes/ subfolder)
-
-* Provide exploratory summaries of the data set using R/Bioc methods
-
-* Replicate of some key results from the manuscript using R/Bioconductor methods to verify the data
-
-* Consider automation of specific analysis or visualization methods as functions that can be share via new R pkg, or existing packages
-
-* Polish the data analysis workflow/s & documentation so that they can be used as training material on resistome analyses using R/Bioconductor
+_This project aims to develop [R/Bioconductor](https://www.bioconductor.org/) 
+tools to analyze AMR data by integrating publicly available human gut 
+metagenomes with ARG profiles (e.g., 
+[metagenomics](https://www.nature.com/subjects/metagenomics)) and 
+epidemiological, transmission data to study AMR gene co-migration._
 
 
 ## Approach
+Reproducible data science workflow and dissemination material to demonstrate the 
+utilization of the latest Bioconductor multi-assay data integration framework in 
+the context of resistome profiling in large population studies. This covers 
+dedicated data structures and the complementary data analysis and visualization 
+methods. The outcomes are reported via an automated pkgdown website.
 
 ## Results
+The main outcome of this work is the reproducible project site including data 
+science workflows for resistome analysis. This forms the basis for an extendable 
+collection of resistome analysis workflows for reanalysis of data for new 
+discoveries, methods development and educational purposes.
 
 ## Future Work
+Future work will standardize and automate some of the key tools, and release 
+them through open source software libraries such as 
+_[mia](https://microbiome.github.io/mia/)_ in R/Bioconductor.
 
 ## NCBI Codeathon Disclaimer
 
-This software was created as part of an NCBI codeathon, a
-hackathon-style event focused on rapid innovation. While we encourage
+This software was created as part of an NCBI codeathon(See [details](https://www.nlm.nih.gov/ncbi/workshops/2024-09_AMR-Codeathon/codeathon-details.html))
+, a hackathon-style event focused on rapid innovation. While we encourage
 you to explore and adapt this code, please be aware that NCBI does not
 provide ongoing support for it.
 
