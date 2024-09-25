@@ -85,6 +85,9 @@ framework</figcaption>
       github homepage (created in point (2))
 
     - Motivate the use of Bioconductor methods.
+
+    - To add documents to the minimal website, see [technical
+      guide](https://ncbi-codeathons.github.io/amr-2024-team-lahti/articles/addqmd.html)
 3.  *Analyse the resistome data set*
     - Provide exploratory summaries of the data set using R/Bioc
       methods.
