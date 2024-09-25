@@ -2,7 +2,11 @@
 title: "Technical manual for quarto document integration"
 author: "Muluh"
 date: "2024-09-25"
-output: html_document
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{teamlahti}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 # Overview
