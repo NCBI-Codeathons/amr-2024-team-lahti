@@ -22,51 +22,31 @@ The dataset comprises samples from six major body sites, with the distribution a
 ```{r}
 library(gt)
 library(dplyr)
-library(htmltools)  
-country_sample_data <- data.frame(
-  Country = c("Austria", "Canada", "China", "Denmark", "France", "Germany", "Israel", 
-              "Italy", "Kazakhstan", "Madagascar", "Netherlands", "Sweden", "USA", 
-              "Bangladesh", "Fiji", "United Kingdom", "Tanzania"),
-  Number_of_Samples = c(154, 328, 1342, 580, 157, 292, 956, 536, 172, 112, 526, 
-                        600, 1431, 47, 312, 344, 67)
+
+# Create a data frame for body site distribution
+body_site_data <- data.frame(
+  body_site = c("Gut", "Oral Cavity", "Skin", "Airway", "Nasal Cavity", "Vagina"),
+  number_of_samples = c(7589, 746, 380, 118, 55, 83)
 )
 
-country_sample_data <- country_sample_data %>%
-  arrange(desc(Number_of_Samples))
-
-country_table <- country_sample_data %>%
+# Display the table with better styling using gt
+body_site_data %>%
   gt() %>%
   tab_header(
-    title = md("**Sample Distribution by Country**")
+    title = "Sample Distribution by Body Site"
   ) %>%
   cols_label(
-    Country = "Country",
-    Number_of_Samples = "Number of Samples"
+    body_site = "Body Site",
+    number_of_samples = "Number of Samples"
   ) %>%
   fmt_number(
-    columns = c(Number_of_Samples),
-    decimals = 0,
-    use_seps = TRUE
+    columns = vars(number_of_samples),
+    decimals = 0
   ) %>%
   tab_style(
     style = cell_text(weight = "bold"),
     locations = cells_column_labels(everything())
-  ) %>%
-  tab_options(
-    table.font.names = "Times New Roman",
-    table.font.size = px(16),
-    table.border.top.width = px(2),
-    table.border.bottom.width = px(2),
-    table_body.border.top.width = px(1),
-    table_body.border.bottom.width = px(1),
-    column_labels.border.bottom.width = px(2),
-    data_row.padding = px(20)
   )
-
-div(
-  style = "height: 400px; overflow-y: auto;",
-  gt::as_raw_html(country_table)
-)
 ```
 
 ## Sample Distribution by Country
