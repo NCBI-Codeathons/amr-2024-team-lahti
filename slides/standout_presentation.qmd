@@ -1,0 +1,31 @@
+---
+title: "Development of R/Bioconductor framework to analyze AMR data"
+author: Team Lahti
+format: 
+  revealjs:
+    controls: true
+---
+
+## Metagenomics workflow
+
+::: columns
+::: {.column width="60%"}
+![](../docs/metagenome_flow.jpeg)
+:::
+
+::: {.column width="40%" style="font-size: 20px;"}
+-   Problems to tackle
+
+    -   Multiple tools gives different outputs
+
+    -   Multi-level data integration
+
+    -   Multiple choices of R packages and methods
+
+    -   Lack documentation and easy to share data format
+:::
+:::
+
+## Proposed framework
+
+![](../docs/workflow.jpeg)

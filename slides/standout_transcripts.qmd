@@ -1,0 +1,41 @@
+---
+title: "Development of R/Bioconductor framework to analyze AMR data"
+author: Team Lahti
+format:
+  revealjs:
+    controls: true
+---
+
+## **Day 1: Idea proposal**
+
+::: {style="font-size: 15px; text-align: justify;"}
+**Introduction**: The overuse of antibiotics has led to a rise in antibiotic resistance genes (ARGs) and their spread across multiple species through horizontal gene transfer (HGT). Microbiomes, or metagenomes, provide an opportunity to study these ARGs and how they spread within microbial communities. Different workflows are available to predict the ARGs and their abundances within metagenomic samples. The tabular counts data can be easily imported into R for doing data analysis.
+
+**Problem**: R/Bioconductor have collections of packages and methods which are routinely used to do data analysis. However, having a multiple choices of methods, complexity of microbiome data and available packages poses different challenges like:
+
+-   Variability in results and interpretation
+
+-   Difficulty in reproducibility,
+
+-   Problems with shareable data objects
+
+-   Lack of proper documentation
+
+**Plan**: To address these issues, our team is actively working on developing Bioconductor frameworks which can offer advantages:
+
+-   Easy data handling and transformations
+
+-   Easy implementation of complex methods
+
+-   Efficient development and community contribution
+
+We are actively developing "[mia](https://www.bioconductor.org/packages/release/bioc/html/mia.html)," a framework for microbiome data analysis with integrated [Bioconductor](https://www.bioconductor.org/) microbiome data science methods. Now, we're proposing a similar workflow for ARG analysis using data containers like TreeSummarizedExperiments, which make it easier to store multi-level datasets and perform data wrangling more efficiently. Our developed framework will include:
+
+-   Integration of available data transformation methods on TreeSummarizedExperiments container
+
+-   Easy-to-use functions for complex methods
+
+-   Well documented workflows and methods
+
+**Data**: We will be using [data](https://github.com/microbiome/data/tree/main/Lee2023) from [Lee, Kihyun, et al, Nature Communications (2023)](https://www.nature.com/articles/s41467-023-36633-7), which has ARGs predicted from 8972 metagenomes from 14 countries spanning 3 continents. The ARGs were predicted using a curated CARD database (October 2017 version).
+:::
