@@ -57,7 +57,7 @@ the context of resistome profiling in large population studies. This covers
 dedicated data structures and the complementary data analysis and visualization 
 methods. The outcomes are reported via an automated pkgdown website.
 
-![Workflow of proposed framework](docs/articles/images/workflow.jpeg)
+![Workflow of proposed framework](articles/images/workflow.jpeg)
 
 [Standout presentation](/standouts/standout-day1.odp)
 
@@ -66,7 +66,7 @@ methods. The outcomes are reported via an automated pkgdown website.
       * Prepare the [Lee et al. (2023)](https://github.com/microbiome/data/tree/main/Lee2023) 
       data set for analysis in R/Bioc and provide sufficient documentation in 
       the Github repository. This can be done by adapting and refining the 
-      previously created data set.
+      previously created data set. See [data summary](https://ncbi-codeathons.github.io/amr-2024-team-lahti/articles/data_summary.html).
 
 2. _Prepare documentation_
       * Create minimal website for this project using pkgdown (perhaps we need 

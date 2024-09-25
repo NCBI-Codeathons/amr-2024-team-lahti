@@ -52,7 +52,7 @@ complementary data analysis and visualization methods. The outcomes are
 reported via an automated pkgdown website.
 
 <figure>
-<img src="docs/articles/images/workflow.jpeg"
+<img src="articles/images/workflow.jpeg"
 alt="Workflow of proposed framework" />
 <figcaption aria-hidden="true">Workflow of proposed
 framework</figcaption>
@@ -67,7 +67,8 @@ framework</figcaption>
       al. (2023)](https://github.com/microbiome/data/tree/main/Lee2023)
       data set for analysis in R/Bioc and provide sufficient
       documentation in the Github repository. This can be done by
-      adapting and refining the previously created data set.
+      adapting and refining the previously created data set. See [data
+      summary](https://ncbi-codeathons.github.io/amr-2024-team-lahti/articles/data_summary.html).
 2.  *Prepare documentation*
     - Create minimal website for this project using pkgdown (perhaps we
       need to convert the repo into a minimal R package to do this?
