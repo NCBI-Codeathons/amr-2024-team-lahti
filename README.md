@@ -33,7 +33,7 @@ GitHub](https://img.shields.io/github/stars/NCBI-Codeathons/amr-2024-team-lahti.
   [Shivang](https://github.com/ShivangPB) Fills various roles and
   assumes responsibilities for tasks as needed
 
-## Project Goals
+## Project goals
 
 *This project aims to develop
 [R/Bioconductor](https://www.bioconductor.org/) tools to analyze AMR
@@ -51,6 +51,45 @@ population studies. This covers dedicated data structures and the
 complementary data analysis and visualization methods. The outcomes are
 reported via an automated pkgdown website.
 
+## Overall analysis plan
+
+1.  *Prepare data*
+    - Prepare the [Lee et
+      al. (2023)](https://github.com/microbiome/data/tree/main/Lee2023)
+      data set for analysis in R/Bioc and provide sufficient
+      documentation in the Github repository. This can be done by
+      adapting and refining the previously created data set.
+2.  *Prepare documentation*
+    - Create minimal website for this project using pkgdown (perhaps we
+      need to convert the repo into a minimal R package to do this?
+      Should be easy, a pkg template is readily available via RStudio)
+
+    - Prepare summary of the data set to be presented on a slide set;
+      for examples, you can see here for examples (“Example data”) and
+      their source code -\> render the slide set as html, we can later
+      see how to publish it.
+
+    - Create one or more tutorials on resistome data analysis using the
+      latest R/Bioconductor methods and release them via the Github
+      repository (vignettes/ subfolder); these can be browsed via the
+      github homepage (created in point (2))
+
+    - Motivate the use of Bioconductor methods.
+3.  *Analyse the resistome data set*
+    - Provide exploratory summaries of the data set using R/Bioc
+      methods.
+    - Replicate of some key results from the manuscript using
+      R/Bioconductor methods to verify the data.
+    - Add new analyses (TBD)
+4.  *Develop methodology*
+    - Consider automation of specific analysis or visualization methods
+      as functions that can be share via new R pkg, or existing
+      packages.
+5.  *Finalize workflow*
+    - Polish the data analysis workflow/s & documentation so that they
+      can be used as training material on resistome analyses using
+      R/Bioconductor.
+
 ## Results
 
 The main outcome of this work is the reproducible project site including
@@ -59,13 +98,13 @@ an extendable collection of resistome analysis workflows for reanalysis
 of data for new discoveries, methods development and educational
 purposes.
 
-## Future Work
+## Future work
 
 Future work will standardize and automate some of the key tools, and
 release them through open source software libraries such as
 *[mia](https://microbiome.github.io/mia/)* in R/Bioconductor.
 
-## NCBI Codeathon Disclaimer
+## NCBI codeathon disclaimer
 
 This software was created as part of an NCBI codeathon(See
 [details](https://www.nlm.nih.gov/ncbi/workshops/2024-09_AMR-Codeathon/codeathon-details.html))
