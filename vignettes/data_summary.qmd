@@ -1,0 +1,104 @@
+---
+title: Data Summary - Lee et al. 2019
+format: 
+  revealjs:
+    theme: white
+    slideNumber: true
+    transition: slide
+---
+
+## Sample Distribution by Body Site
+
+A total of 9,251 samples from various human body sites:
+
+```{r}
+library(gt)
+library(dplyr)
+# Create a data frame for body site distribution
+body_site_data <- data.frame(
+  Body_Site = c("Gut", "Oral Cavity", "Skin", "Airway", "Nasal Cavity", "Vagina"),
+  Number_of_Samples = c(7589, 746, 380, 118, 55, 83)
+)
+# Display the table with enhanced styling using gt
+body_site_data %>%
+  gt() %>%
+  tab_header(
+    title = md("**Sample Distribution by Body Site**"),
+  ) %>%
+  cols_label(
+    Body_Site = "Body Site",
+    Number_of_Samples = "Number of Samples"
+  ) %>%
+  fmt_number(
+    columns = c(Number_of_Samples),
+    decimals = 0,
+    use_seps = TRUE
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  ) %>%
+  tab_options(
+    table.font.names = "Times New Roman",
+    table.font.size = px(16),       # Increased font size
+    table.border.top.width = px(2),
+    table.border.bottom.width = px(2),
+    table_body.border.top.width = px(1),
+    table_body.border.bottom.width = px(1),
+    column_labels.border.bottom.width = px(2),
+    data_row.padding = px(20)        # Increased padding
+  )
+```
+
+## Sample Distribution by Country
+
+```{r}
+library(gt)
+library(dplyr)
+library(htmltools)  # For wrapping the table in a scrollable div
+# Create a data frame for country sample distribution
+country_sample_data <- data.frame(
+  Country = c("Austria", "Canada", "China", "Denmark", "France", "Germany", "Israel", 
+              "Italy", "Kazakhstan", "Madagascar", "Netherlands", "Sweden", "USA", 
+              "Bangladesh", "Fiji", "United Kingdom", "Tanzania"),
+  Number_of_Samples = c(154, 328, 1342, 580, 157, 292, 956, 536, 172, 112, 526, 
+                        600, 1431, 47, 312, 344, 67)
+)
+# Arrange the data frame by Number_of_Samples descending
+country_sample_data <- country_sample_data %>%
+  arrange(desc(Number_of_Samples))
+# Create the table with gt
+country_table <- country_sample_data %>%
+  gt() %>%
+  tab_header(
+    title = md("**Sample Distribution by Country**")
+  ) %>%
+  cols_label(
+    Country = "Country",
+    Number_of_Samples = "Number of Samples"
+  ) %>%
+  fmt_number(
+    columns = c(Number_of_Samples),
+    decimals = 0,
+    use_seps = TRUE
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  ) %>%
+  tab_options(
+    table.font.names = "Times New Roman",
+    table.font.size = px(16),
+    table.border.top.width = px(2),
+    table.border.bottom.width = px(2),
+    table_body.border.top.width = px(1),
+    table_body.border.bottom.width = px(1),
+    column_labels.border.bottom.width = px(2),
+    data_row.padding = px(20)
+  )
+# Render the table and wrap it in a scrollable div
+div(
+  style = "height: 400px; overflow-y: auto;",
+  gt::as_raw_html(country_table)
+)
+```
