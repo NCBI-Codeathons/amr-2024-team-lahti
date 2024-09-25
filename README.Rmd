@@ -17,6 +17,13 @@ knitr::opts_chunk$set(
 
 
 <!-- badges: start -->
+[![Codecov test
+coverage](https://codecov.io/gh/NCBI-Codeathons/amr-2024-team-lahti/branch/main/graph/badge.svg)](https://codecov.io/gh/NCBI-Codeathons/amr-2024-team-lahti?branch=main)
+[![Slack](https://img.shields.io/badge/Slack-Join-blue.svg?logo=slack)](https://ncbiamrcodeathon.slack.com/x-p7700037081187-7765806765012-7763213820995/archives/C07L5HA3UFR)
+[![Watch on
+GitHub](https://img.shields.io/github/watchers/NCBI-Codeathons/amr-2024-team-lahti.svg?style=social)](https://github.com/NCBI-Codeathons/amr-2024-team-lahti/watchers)
+[![Star on
+GitHub](https://img.shields.io/github/stars/NCBI-Codeathons/amr-2024-team-lahti.svg?style=social)](https://github.com/NCBI-Codeathons/amr-2024-team-lahti/stargazers)
 <!-- badges: end -->
 
 List of participants and affiliations: 
@@ -101,5 +108,3 @@ provide ongoing support for it.
 
 For general questions about NCBI software and tools, please visit: [NCBI
 Contact Page](https://www.ncbi.nlm.nih.gov/home/about/contact/)
-
-
