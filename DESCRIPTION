@@ -1,14 +1,40 @@
 Package: teamlahti
 Title: Resistome data analysis
 Version: 0.0.1
-Authors@R:
-        person("Team", "Lahti", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+Authors@R:  c(person("Leo", "Lahti", 
+                 role = c("aut"),
+                 email ="leo.lahti@iki.fi",
+                 comment = c(ORCID = "0000-0001-5537-637X")),
+             person("Muluh", "Geraldson",
+                 email = "rysdaena8@gmail.com",
+                 role = c("aut", "cre"), 
+                 comment = c(ORCID = '0000-0000-0000-0000')),
+             person("Akewak", "Jeba",
+                 email = "email@gmail.com",
+                 role = c("aut"), 
+                 comment = c(ORCID = '0000-0000-0000-0000')),
+             person("Nitin", "Bayal",
+                 email = "email@gmail.com",
+                 role = c("aut"), 
+                 comment = c(ORCID = '0000-0000-0000-0000')),
+             person("Shivang", "Bhanushali",
+                 email = "email@gmail.com",
+                 role = c("aut"), 
+                 comment = c(ORCID = '0000-0000-0000-0000')),
+             person("Dattaray", "Mongad",
+                 email = "email@gmail.com",
+                 role = c("aut"), 
+                 comment = c(ORCID = '0000-0000-0000-0000')),
+             person("Mahkameh", "Salehi",
+                 email = "email@gmail.com",
+                 role = c("aut"), 
+                 comment = c(ORCID = '0000-0000-0000-0000'))
+             )
 Description: Contains a reproducible tutorial on how to analyse and visualize 
              variation in a large resistome profiling data set and associate it 
              with various background factors by using the latest R/Bioconductor 
              methods.
-License: MIT + file LICENSE
+License: MIT
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
