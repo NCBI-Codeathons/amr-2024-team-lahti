@@ -30,7 +30,7 @@ GitHub](https://img.shields.io/github/stars/NCBI-Codeathons/amr-2024-team-lahti.
   documented, manages GitHub README and Team Report
 
 - **Flex** / [Mahkameh Salehi](https://github.com/mahkamehsalehi) &
-  [Shivang](https://github.com/ShivangPB) Fills various roles and
+  [Shivang ](https://github.com/ShivangPB) Fills various roles and
   assumes responsibilities for tasks as needed
 
 ## Project goals

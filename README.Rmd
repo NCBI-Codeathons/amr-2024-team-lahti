@@ -38,7 +38,7 @@ and the team’s GitHub repository, troubleshoots technical issues with tech sup
 * __Writer__ / [Dattaray Mongad](https://github.com/microDM) & [Nitin Bayal](https://github.com/nixonbyl)
 Ensures that all work is documented, manages GitHub README and Team Report
 
-* __Flex__ / [Mahkameh Salehi](https://github.com/mahkamehsalehi) & [Shivang](https://github.com/ShivangPB)
+* __Flex__ / [Mahkameh Salehi](https://github.com/mahkamehsalehi) & [Shivang Bhanushali](https://github.com/ShivangPB)
 Fills various roles and assumes responsibilities for tasks as needed
 
 ## Project goals
