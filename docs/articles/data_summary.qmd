@@ -20,42 +20,47 @@ The data used comes from the study titled "Population-level impacts of antibioti
 The dataset comprises samples from six major body sites, with the distribution as follows:
 
 ```{r}
-library(gt)
+library(ggplot2)
 library(dplyr)
+library(scales)
+library(RColorBrewer)
 
 body_site_data <- data.frame(
   Body_Site = c("Gut", "Oral Cavity", "Skin", "Airway", "Nasal Cavity", "Vagina"),
   Number_of_Samples = c(7589, 746, 380, 118, 55, 83)
 )
-# Display the table with enhanced styling using gt
-body_site_data %>%
-  gt() %>%
-  tab_header(
-    title = md("**Sample Distribution by Body Site**"),
-  ) %>%
-  cols_label(
-    Body_Site = "Body Site",
-    Number_of_Samples = "Number of Samples"
-  ) %>%
-  fmt_number(
-    columns = c(Number_of_Samples),
-    decimals = 0,
-    use_seps = TRUE
-  ) %>%
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels(everything())
-  ) %>%
-  tab_options(
-    table.font.names = "Times New Roman",
-    table.font.size = px(16),       # Increased font size
-    table.border.top.width = px(2),
-    table.border.bottom.width = px(2),
-    table_body.border.top.width = px(1),
-    table_body.border.bottom.width = px(1),
-    column_labels.border.bottom.width = px(2),
-    data_row.padding = px(20)        # Increased padding
-  )
+
+body_site_data <- body_site_data %>%
+  arrange(desc(Number_of_Samples))
+
+body_site_data$Body_Site <- factor(body_site_data$Body_Site, 
+                                   levels = body_site_data$Body_Site)
+
+palette <- brewer.pal(n = 6, name = "Greens")
+
+ggplot(body_site_data, aes(x = Number_of_Samples, y = Body_Site)) +
+  geom_bar(stat = "identity", fill = palette[5]) +
+  geom_text(aes(label = comma(Number_of_Samples)), 
+            hjust = -0.1, 
+            size = 4, 
+            color = "black") +
+  scale_x_continuous(labels = comma, 
+                     expand = expansion(mult = c(0, 0.1))) +
+  labs(
+    title = "Sample Distribution by Body Site",
+    x = "Number of Samples",
+    y = "Body Site"
+  ) +
+  theme_minimal(base_size = 14, base_family = "Times New Roman") +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.margin = margin(10, 10, 10, 10)
+  ) +
+  coord_cartesian(clip = "off")
 ```
 
 ## Sample Distribution by Country
@@ -63,9 +68,12 @@ body_site_data %>%
 The study collected samples from individuals across multiple countries.
 
 ```{r}
-library(gt)
+library(ggplot2)
 library(dplyr)
-library(htmltools) 
+library(scales)
+library(ggtext)
+library(RColorBrewer)
+
 country_sample_data <- data.frame(
   Country = c("Austria", "Canada", "China", "Denmark", "France", "Germany", "Israel", 
               "Italy", "Kazakhstan", "Madagascar", "Netherlands", "Sweden", "USA", 
@@ -77,37 +85,32 @@ country_sample_data <- data.frame(
 country_sample_data <- country_sample_data %>%
   arrange(desc(Number_of_Samples))
 
-country_table <- country_sample_data %>%
-  gt() %>%
-  tab_header(
-    title = md("**Sample Distribution by Country**")
-  ) %>%
-  cols_label(
-    Country = "Country",
-    Number_of_Samples = "Number of Samples"
-  ) %>%
-  fmt_number(
-    columns = c(Number_of_Samples),
-    decimals = 0,
-    use_seps = TRUE
-  ) %>%
-  tab_style(
-    style = cell_text(weight = "bold"),
-    locations = cells_column_labels(everything())
-  ) %>%
-  tab_options(
-    table.font.names = "Times New Roman",
-    table.font.size = px(16),
-    table.border.top.width = px(2),
-    table.border.bottom.width = px(2),
-    table_body.border.top.width = px(1),
-    table_body.border.bottom.width = px(1),
-    column_labels.border.bottom.width = px(2),
-    data_row.padding = px(20)
-  )
+country_sample_data$Country <- factor(country_sample_data$Country, 
+                                     levels = country_sample_data$Country)
 
-div(
-  style = "height: 400px; overflow-y: auto;",
-  gt::as_raw_html(country_table)
-)
+palette <- brewer.pal(n = 8, name = "Blues")
+
+ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
+  geom_bar(stat = "identity", fill = palette[6]) +
+  geom_text(aes(label = comma(Number_of_Samples)), 
+            hjust = -0.1, 
+            size = 4, 
+            color = "black") +
+  scale_x_continuous(labels = comma, 
+                     expand = expansion(mult = c(0, 0.1))) +
+  labs(
+    title = "Sample Distribution by Country",
+    x = "Number of Samples",
+    y = "Country"
+  ) +
+  theme_minimal(base_size = 14, base_family = "Times New Roman") +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.margin = margin(10, 10, 10, 10)
+  ) +
+  coord_cartesian(clip = "off")
 ```
