@@ -9,6 +9,10 @@ reference:
     desc: ~
   - title: Internals
     desc: ~
+    contents:
+      - '`Lee2023`'
+      - '`teamlahti-datasets`'
+      - '`teamlahti-package`'
 navbar:
   type: inverse
   left:
@@ -36,7 +40,7 @@ navbar:
       href: https://github.com/NCBI-Codeathons/amr-2024-team-lahti
     - icon: fa-file-code-o
       text: "Methods"
-      href: https://github.com/NCBI-Codeathons/amr-2024-team-lahti
+      href: reference/index.html
     - icon: fa-github fa-lg
       text: "github"
       href: https://github.com/NCBI-Codeathons/amr-2024-team-lahti
