@@ -5,6 +5,7 @@ format:
     theme: white
     font-family: "Times New Roman"
     slideNumber: true
+    scrollable: true
     
     transition: slide
 ---
@@ -114,3 +115,19 @@ ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
   ) +
   coord_cartesian(clip = "off")
 ```
+
+## Methods: Data Collection & Compilation
+
+-   Manually curated ARG families from CARD database (n=752)   
+
+-   6104 adult gut metagenome samples from 20 countries after refinning
+
+-   curatedMetagenomeData R package for retrieving the sample metadata
+
+-   Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download
+
+-   Metagenomic assemblies retrieved from [Pasolli et al.](http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html)
+
+![](images/Disease.png)
+
+![](images/AgeCategory.png)
