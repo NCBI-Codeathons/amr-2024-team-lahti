@@ -45,7 +45,7 @@ Fills various roles and assumes responsibilities for tasks as needed
 
 _This project aims to develop [R/Bioconductor](https://www.bioconductor.org/) 
 tools to analyze AMR data by integrating publicly available human gut 
-metagenomes with ARG profiles (e.g., 
+metagenomes with ARG profiles (e.g. 
 [metagenomics](https://www.nature.com/subjects/metagenomics)) and 
 epidemiological, transmission data to study AMR gene co-migration._
 
