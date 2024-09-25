@@ -3,3 +3,5 @@ project:
   output-dir: ../docs/articles
   render:
     - data_summary.qmd
+    - standout_presentation.qmd
+    - standout_transcripts.qmd
