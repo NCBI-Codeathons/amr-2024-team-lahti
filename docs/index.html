@@ -108,7 +108,7 @@
       </header><div class="row">
   <div class="contents col-md-9">
 <div class="section level1">
-<div class="page-header"><h1 id="resistome-data-analysis">Resistome data analysis<a class="anchor" aria-label="anchor" href="#resistome-data-analysis"></a>
+<div class="page-header"><h1 id="antimicrobial-resistome-data-analysis-with-rbioconductor">Antimicrobial resistome data analysis with R/Bioconductor<a class="anchor" aria-label="anchor" href="#antimicrobial-resistome-data-analysis-with-rbioconductor"></a>
 </h1></div>
 <!-- badges: start -->
 
@@ -116,42 +116,36 @@
 <h2 id="team-roles">Team roles<a class="anchor" aria-label="anchor" href="#team-roles"></a>
 </h2>
 <ul>
-<li><p><em>Team Lead / Leo (antagomir)</em> Conveys scientific objectives to the team, and coordinates work.</p></li>
-<li><p><em>Tech Lead / Jeba (ake123) &amp; Muluh (Daenarys8)</em> Coordinates software installation and data acquisition, manages version control and the team’s GitHub repository, troubleshoots technical issues with tech support</p></li>
-<li><p><em>Writer / Datta (microDM), Nitin (nixonbyl)</em> Ensures that all work is documented, manages GitHub README and Team Report</p></li>
-<li><p><em>Flex / Mahkameh (mahkamehsalehi), Shivang (ShivangPB)</em> Fills various roles and assumes responsibilities for tasks as needed</p></li>
+<li><p><strong>Team Lead</strong> / <a href="https://github.com/antagomir" class="external-link">Leo Lahti</a> Conveys scientific objectives to the team, and coordinates work.</p></li>
+<li><p><strong>Tech Lead</strong> / <a href="https://github.com/ake123" class="external-link">Akewak Jeba</a> &amp; <a href="https://github.com/Daenarys8" class="external-link">Muluh Geraldson</a> Coordinates software installation and data acquisition, manages version control and the team’s GitHub repository, troubleshoots technical issues with tech support</p></li>
+<li><p><strong>Writer</strong> / <a href="https://github.com/microDM" class="external-link">Dattaray Mongad</a> &amp; <a href="https://github.com/nixonbyl" class="external-link">Nitin Bayal</a> Ensures that all work is documented, manages GitHub README and Team Report</p></li>
+<li><p><strong>Flex</strong> / <a href="https://github.com/mahkamehsalehi" class="external-link">Mahkameh Salehi</a> &amp; <a href="https://github.com/ShivangPB" class="external-link">Shivang</a> Fills various roles and assumes responsibilities for tasks as needed</p></li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="project-goals">Project Goals<a class="anchor" aria-label="anchor" href="#project-goals"></a>
 </h2>
-<ul>
-<li><p>Prepare the Lee et al. (2023) data set for analysis in R/Bioc and provide sufficient documentation in the Github repository.</p></li>
-<li><p>Create minimal website for this project using pkgdown</p></li>
-<li><p>Prepare summary of the data set to be presented on a slide set</p></li>
-<li><p>Create tutorial on resistome data analysis using the latest R/Bioconductor methods and release them via the Github repository (vignettes/ subfolder)</p></li>
-<li><p>Provide exploratory summaries of the data set using R/Bioc methods</p></li>
-<li><p>Replicate of some key results from the manuscript using R/Bioconductor methods to verify the data</p></li>
-<li><p>Consider automation of specific analysis or visualization methods as functions that can be share via new R pkg, or existing packages</p></li>
-<li><p>Polish the data analysis workflow/s &amp; documentation so that they can be used as training material on resistome analyses using R/Bioconductor</p></li>
-</ul>
+<p><em>This project aims to develop <a href="https://www.bioconductor.org/" class="external-link">R/Bioconductor</a> tools to analyze AMR data by integrating publicly available human gut metagenomes with ARG profiles (e.g., <a href="https://www.nature.com/subjects/metagenomics" class="external-link">metagenomics</a>) and epidemiological, transmission data to study AMR gene co-migration.</em></p>
 </div>
 <div class="section level2">
 <h2 id="approach">Approach<a class="anchor" aria-label="anchor" href="#approach"></a>
 </h2>
+<p>Reproducible data science workflow and dissemination material to demonstrate the utilization of the latest Bioconductor multi-assay data integration framework in the context of resistome profiling in large population studies. This covers dedicated data structures and the complementary data analysis and visualization methods. The outcomes are reported via an automated pkgdown website.</p>
 </div>
 <div class="section level2">
 <h2 id="results">Results<a class="anchor" aria-label="anchor" href="#results"></a>
 </h2>
+<p>The main outcome of this work is the reproducible project site including data science workflows for resistome analysis. This forms the basis for an extendable collection of resistome analysis workflows for reanalysis of data for new discoveries, methods development and educational purposes.</p>
 </div>
 <div class="section level2">
 <h2 id="future-work">Future Work<a class="anchor" aria-label="anchor" href="#future-work"></a>
 </h2>
+<p>Future work will standardize and automate some of the key tools, and release them through open source software libraries such as <em><a href="https://microbiome.github.io/mia/" class="external-link">mia</a></em> in R/Bioconductor.</p>
 </div>
 <div class="section level2">
 <h2 id="ncbi-codeathon-disclaimer">NCBI Codeathon Disclaimer<a class="anchor" aria-label="anchor" href="#ncbi-codeathon-disclaimer"></a>
 </h2>
-<p>This software was created as part of an NCBI codeathon, a hackathon-style event focused on rapid innovation. While we encourage you to explore and adapt this code, please be aware that NCBI does not provide ongoing support for it.</p>
+<p>This software was created as part of an NCBI codeathon(See <a href="https://www.nlm.nih.gov/ncbi/workshops/2024-09_AMR-Codeathon/codeathon-details.html" class="external-link">details</a>) , a hackathon-style event focused on rapid innovation. While we encourage you to explore and adapt this code, please be aware that NCBI does not provide ongoing support for it.</p>
 <p>For general questions about NCBI software and tools, please visit: <a href="https://www.ncbi.nlm.nih.gov/home/about/contact/" class="external-link">NCBI Contact Page</a></p>
 </div>
 </div>
@@ -186,12 +180,12 @@
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Leo Lahti <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0001-5537-637X" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Muluh Geraldson <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0000-0000-0000" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Akewak Jeba <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0000-0000-0000" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Nitin Bayal <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0000-0000-0000" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Shivang Bhanushali <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0000-0000-0000" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Dattaray Mongad <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0000-0000-0000" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>Mahkameh Salehi <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0000-0000-0000" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Muluh Geraldson <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-9721-5192" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Akewak Jeba <br><small class="roles"> Author </small> <a href="https://orcid.org/0009-0007-1347-7552" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Nitin Bayal <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-4840-9898" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Shivang Bhanushali <br><small class="roles"> Author </small> <a href="https://orcid.org/0009-0007-8277-3662" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Dattaray Mongad <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-4801-7410" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Mahkameh Salehi <br><small class="roles"> Author </small> <a href="https://orcid.org/0009-0009-7153-226X" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
