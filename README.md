@@ -30,15 +30,15 @@ GitHub](https://img.shields.io/github/stars/NCBI-Codeathons/amr-2024-team-lahti.
   documented, manages GitHub README and Team Report
 
 - **Flex** / [Mahkameh Salehi](https://github.com/mahkamehsalehi) &
-  [Shivang ](https://github.com/ShivangPB) Fills various roles and
-  assumes responsibilities for tasks as needed
+  [Shivang Bhanushali](https://github.com/ShivangPB) Fills various roles
+  and assumes responsibilities for tasks as needed
 
 ## Project goals
 
 *This project aims to develop
 [R/Bioconductor](https://www.bioconductor.org/) tools to analyze AMR
 data by integrating publicly available human gut metagenomes with ARG
-profiles (e.g.,
+profiles (e.g. 
 [metagenomics](https://www.nature.com/subjects/metagenomics)) and
 epidemiological, transmission data to study AMR gene co-migration.*
 
