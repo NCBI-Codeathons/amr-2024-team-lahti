@@ -51,6 +51,14 @@ population studies. This covers dedicated data structures and the
 complementary data analysis and visualization methods. The outcomes are
 reported via an automated pkgdown website.
 
+<figure>
+<img src="./docs/workflow.jpeg" alt="Workflow of proposed framework" />
+<figcaption aria-hidden="true">Workflow of proposed
+framework</figcaption>
+</figure>
+
+[Standout presentation](./docs/standouts/standout-day1.odp)
+
 ## Overall analysis plan
 
 1.  *Prepare data*

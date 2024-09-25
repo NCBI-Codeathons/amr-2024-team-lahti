@@ -1,32 +1,46 @@
 ---
-title: Data Summary Lee et al. 2019
+title: Data Summary
 format: 
   revealjs:
     theme: white
+    font-family: "Times New Roman"
     slideNumber: true
+    
     transition: slide
 ---
 
+## Data Source
+
+![](images/Capture.PNG){fig-align="center"}
+
+The data used comes from the study titled "Population-level impacts of antibiotic usage on the human gut microbiome", published in Nature Communications in 2023 by Lee et al. This large-scale study includes a total of 9,251 samples collected from various human body sites and countries, aiming to assess the impact of antibiotic usage on the human gut microbiome.
+
 ## Sample Distribution by Body Site
 
-A total of 9,251 samples from various human body sites:
+The dataset comprises samples from six major body sites, with the distribution as follows:
 
 ```{r}
 library(gt)
 library(dplyr)
-# Create a data frame for body site distribution
-body_site_data <- data.frame(
-  Body_Site = c("Gut", "Oral Cavity", "Skin", "Airway", "Nasal Cavity", "Vagina"),
-  Number_of_Samples = c(7589, 746, 380, 118, 55, 83)
+library(htmltools)  
+country_sample_data <- data.frame(
+  Country = c("Austria", "Canada", "China", "Denmark", "France", "Germany", "Israel", 
+              "Italy", "Kazakhstan", "Madagascar", "Netherlands", "Sweden", "USA", 
+              "Bangladesh", "Fiji", "United Kingdom", "Tanzania"),
+  Number_of_Samples = c(154, 328, 1342, 580, 157, 292, 956, 536, 172, 112, 526, 
+                        600, 1431, 47, 312, 344, 67)
 )
-# Display the table with enhanced styling using gt
-body_site_data %>%
+
+country_sample_data <- country_sample_data %>%
+  arrange(desc(Number_of_Samples))
+
+country_table <- country_sample_data %>%
   gt() %>%
   tab_header(
-    title = md("**Sample Distribution by Body Site**"),
+    title = md("**Sample Distribution by Country**")
   ) %>%
   cols_label(
-    Body_Site = "Body Site",
+    Country = "Country",
     Number_of_Samples = "Number of Samples"
   ) %>%
   fmt_number(
@@ -40,14 +54,19 @@ body_site_data %>%
   ) %>%
   tab_options(
     table.font.names = "Times New Roman",
-    table.font.size = px(16),       # Increased font size
+    table.font.size = px(16),
     table.border.top.width = px(2),
     table.border.bottom.width = px(2),
     table_body.border.top.width = px(1),
     table_body.border.bottom.width = px(1),
     column_labels.border.bottom.width = px(2),
-    data_row.padding = px(20)        # Increased padding
+    data_row.padding = px(20)
   )
+
+div(
+  style = "height: 400px; overflow-y: auto;",
+  gt::as_raw_html(country_table)
+)
 ```
 
 ## Sample Distribution by Country
@@ -55,8 +74,8 @@ body_site_data %>%
 ```{r}
 library(gt)
 library(dplyr)
-library(htmltools)  # For wrapping the table in a scrollable div
-# Create a data frame for country sample distribution
+library(htmltools)
+
 country_sample_data <- data.frame(
   Country = c("Austria", "Canada", "China", "Denmark", "France", "Germany", "Israel", 
               "Italy", "Kazakhstan", "Madagascar", "Netherlands", "Sweden", "USA", 
@@ -64,10 +83,10 @@ country_sample_data <- data.frame(
   Number_of_Samples = c(154, 328, 1342, 580, 157, 292, 956, 536, 172, 112, 526, 
                         600, 1431, 47, 312, 344, 67)
 )
-# Arrange the data frame by Number_of_Samples descending
+
 country_sample_data <- country_sample_data %>%
   arrange(desc(Number_of_Samples))
-# Create the table with gt
+
 country_table <- country_sample_data %>%
   gt() %>%
   tab_header(

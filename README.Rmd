@@ -57,6 +57,10 @@ the context of resistome profiling in large population studies. This covers
 dedicated data structures and the complementary data analysis and visualization 
 methods. The outcomes are reported via an automated pkgdown website.
 
+![Workflow of proposed framework](./docs/workflow.jpeg)
+
+[Standout presentation](./docs/standouts/standout-day1.odp)
+
 ## Overall analysis plan
 1. _Prepare data_ 
       * Prepare the [Lee et al. (2023)](https://github.com/microbiome/data/tree/main/Lee2023) 
