@@ -2,9 +2,8 @@ pandoc: 3.1.11
 pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
-  data_summary: data_summary.html
   teamlahti: teamlahti.html
-last_built: 2024-09-25T09:43Z
+last_built: 2024-09-25T10:42Z
 urls:
   reference: https://github.com/NCBI-Codeathons/amr-2024-team-lahti/reference
   article: https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles

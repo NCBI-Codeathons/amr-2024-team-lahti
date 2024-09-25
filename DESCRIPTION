@@ -1,5 +1,5 @@
 Package: teamlahti
-Title: Resistome data analysis
+Title: AMR resistome data analysis with R/Bioconductor
 Version: 0.0.1
 Authors@R:  c(person("Leo", "Lahti", 
                  role = c("aut"),
