@@ -1,0 +1,37 @@
+title: teamlahti
+url: https://github.com/NCBI-Codeathons/amr-2024-team-lahti
+template:
+  params:
+    bootswatch: flatly
+    ganalytics: UA-84499524-2
+reference:
+  - title: Exported Functions
+    desc: ~
+  - title: Internals
+    desc: ~
+navbar:
+  type: inverse
+  left:
+    - icon: fa-home
+      href: articles/index.html
+  right:
+    - text: "Articles"
+      icon: fas fa-book
+      menu:
+      -  text: Installation
+         href: https://github.com/NCBI-Codeathons/amr-2024-team-lahti
+    - text: "faq"
+      icon: fa-question-circle-o
+      href: articles/index.html
+    - icon: fa-newspaper-o
+      text: "news"
+      href: https://github.com/NCBI-Codeathons/amr-2024-team-lahti
+    - icon: fa-file-code-o
+      text: "Methods"
+      href: https://github.com/NCBI-Codeathons/amr-2024-team-lahti
+    - icon: fa-github fa-lg
+      text: "github"
+      href: https://github.com/NCBI-Codeathons/amr-2024-team-lahti
+extra_packages:
+  - tidyr
+  - tibbletime
