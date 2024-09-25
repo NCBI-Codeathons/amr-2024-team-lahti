@@ -1,0 +1,123 @@
+---
+title: Data Summary
+format: 
+  revealjs:
+    theme: white
+    font-family: "Times New Roman"
+    slideNumber: true
+    
+    transition: slide
+---
+
+## Data Source
+
+![](images/Capture.PNG){fig-align="center"}
+
+The data used comes from the study titled "Population-level impacts of antibiotic usage on the human gut microbiome", published in Nature Communications in 2023 by Lee et al. This large-scale study includes a total of 9,251 samples collected from various human body sites and countries, aiming to assess the impact of antibiotic usage on the human gut microbiome.
+
+## Sample Distribution by Body Site
+
+The dataset comprises samples from six major body sites, with the distribution as follows:
+
+```{r}
+library(gt)
+library(dplyr)
+library(htmltools)  
+country_sample_data <- data.frame(
+  Country = c("Austria", "Canada", "China", "Denmark", "France", "Germany", "Israel", 
+              "Italy", "Kazakhstan", "Madagascar", "Netherlands", "Sweden", "USA", 
+              "Bangladesh", "Fiji", "United Kingdom", "Tanzania"),
+  Number_of_Samples = c(154, 328, 1342, 580, 157, 292, 956, 536, 172, 112, 526, 
+                        600, 1431, 47, 312, 344, 67)
+)
+
+country_sample_data <- country_sample_data %>%
+  arrange(desc(Number_of_Samples))
+
+country_table <- country_sample_data %>%
+  gt() %>%
+  tab_header(
+    title = md("**Sample Distribution by Country**")
+  ) %>%
+  cols_label(
+    Country = "Country",
+    Number_of_Samples = "Number of Samples"
+  ) %>%
+  fmt_number(
+    columns = c(Number_of_Samples),
+    decimals = 0,
+    use_seps = TRUE
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  ) %>%
+  tab_options(
+    table.font.names = "Times New Roman",
+    table.font.size = px(16),
+    table.border.top.width = px(2),
+    table.border.bottom.width = px(2),
+    table_body.border.top.width = px(1),
+    table_body.border.bottom.width = px(1),
+    column_labels.border.bottom.width = px(2),
+    data_row.padding = px(20)
+  )
+
+div(
+  style = "height: 400px; overflow-y: auto;",
+  gt::as_raw_html(country_table)
+)
+```
+
+## Sample Distribution by Country
+
+```{r}
+library(gt)
+library(dplyr)
+library(htmltools)
+
+country_sample_data <- data.frame(
+  Country = c("Austria", "Canada", "China", "Denmark", "France", "Germany", "Israel", 
+              "Italy", "Kazakhstan", "Madagascar", "Netherlands", "Sweden", "USA", 
+              "Bangladesh", "Fiji", "United Kingdom", "Tanzania"),
+  Number_of_Samples = c(154, 328, 1342, 580, 157, 292, 956, 536, 172, 112, 526, 
+                        600, 1431, 47, 312, 344, 67)
+)
+
+country_sample_data <- country_sample_data %>%
+  arrange(desc(Number_of_Samples))
+
+country_table <- country_sample_data %>%
+  gt() %>%
+  tab_header(
+    title = md("**Sample Distribution by Country**")
+  ) %>%
+  cols_label(
+    Country = "Country",
+    Number_of_Samples = "Number of Samples"
+  ) %>%
+  fmt_number(
+    columns = c(Number_of_Samples),
+    decimals = 0,
+    use_seps = TRUE
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  ) %>%
+  tab_options(
+    table.font.names = "Times New Roman",
+    table.font.size = px(16),
+    table.border.top.width = px(2),
+    table.border.bottom.width = px(2),
+    table_body.border.top.width = px(1),
+    table_body.border.bottom.width = px(1),
+    column_labels.border.bottom.width = px(2),
+    data_row.padding = px(20)
+  )
+# Render the table and wrap it in a scrollable div
+div(
+  style = "height: 400px; overflow-y: auto;",
+  gt::as_raw_html(country_table)
+)
+```
