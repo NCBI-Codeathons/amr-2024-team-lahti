@@ -1,0 +1,126 @@
+---
+title: "Technical manual for quarto document integration"
+author: "Muluh"
+date: "2024-09-25"
+output: html_document
+---
+
+# Overview
+
+This vignette serves as a technical guide for integrating new Quarto documents 
+into the package website. The process includes adding `.qmd` files, updating 
+configurations, and rendering the site. This workflow ensures that new 
+documentation (including articles, summaries, and presentations) is properly 
+displayed on the website.
+
+## Prerequisites
+
+- The main script for rendering the Quarto documents is located in the `slides` 
+directory, under the filename `main.R`.
+- You will need the `pkgdown` package installed to locally build and test the site.
+```{code}
+install.packages("pkgdown")
+```
+
+## Adding a New Document
+
+### Step 1: Place the `.qmd` File in the `slides` Directory
+
+To add a new document to the website, first, ensure that the Quarto file (`.qmd`) 
+is placed in the `slides` directory. This directory houses all the source files 
+for the site's content.
+
+### Step 2: Edit the `_quarto.yml` File
+
+After adding the `.qmd` file, navigate to the `_quarto.yml` file found in the 
+`slides` directory. You need to add the new file to the YAML configuration so 
+that it can be included in the site.
+
+1. Open `_quarto.yml` in a text editor.
+2. Locate the section listing the documents to be rendered.
+3. Add the filename of the new `.qmd` file to the list. Here’s an example:
+
+```{code}
+project:
+  type: website
+  output-dir: ../docs/articles
+  render:
+    - data_summary.qmd
+    - standout_presentation.qmd
+    - standout_transcripts.qmd
+```
+
+### Step 3: Run the `main.R` Script
+
+Once the `.qmd` file is added to the configuration, run the `main.R` script f
+ound in the `slides` directory to render the document and update the website files.
+
+```{code}
+# In R
+source("slides/main.R")
+```
+
+
+This script will create the necessary web files for the site in the `docs/articles` 
+subdirectory.
+
+## Adding a Document to a Submenu
+
+To organize the document under a specific section (e.g., "Articles" or "Methods"),
+you will need to edit the `_pkgdown.yml` file located in the root directory.
+
+1. Open `_pkgdown.yml` in your code editor.
+2. Locate the section under "Articles" or the relevant submenu.
+3. Add an entry for the new file, similar to how existing documents are organized:
+
+```{code}
+title: teamlahti
+url: https://github.com/NCBI-Codeathons/amr-2024-team-lahti
+template:
+  params:
+    bootswatch: flatly
+    ganalytics: UA-84499524-2
+reference:
+  - title: Exported Functions
+    desc: ~
+  - title: Internals
+    desc: ~
+navbar:
+  type: inverse
+  left:
+    - icon: fa-home
+      href: articles/index.html
+  right:
+    - text: "Articles"
+      icon: fas fa-book
+      menu:
+      -  text: Installation
+         href: https://github.com/NCBI-Codeathons/amr-2024-team-lahti
+      -  text: Data summary
+         href: articles/data_summary.html
+      -  text: Presentation 9.24.24
+```
+### Step 4: Build the Site Locally
+
+Once the necessary changes are made, run `build_site()` from the console to test 
+the site locally:
+
+```{code}
+pkgdown::build_site()
+```
+
+This command will render the site in your local environment so you can review 
+the changes before pushing them to the repository.
+
+## Final Step: Commit and Push Changes
+
+If everything looks good, commit your changes and push them to the remote 
+repository:
+```{code}
+git add .
+git commit -m "Added new quarto document to site"
+git push origin main
+```
+
+Once the changes are pushed, the new document should be live on the site after 
+the deployment process completes.
