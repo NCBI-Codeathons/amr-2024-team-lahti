@@ -229,19 +229,9 @@ combined_summary_df %>%
 
 ![](images/BMI.png)
 
-![](images/NumReads.png)
-
-![](images/numBases.png)
-
-![](images/median_read_length.png)
-
 ## Taxanomic Diversity {.smaller}
 
 ![](images/kingdom.png)
-
-## Pathogen Analysis {.smaller}
-
-![](images/human_pathogen.png)
 
 ## **National Database of Antibiotic Resistant Organisms** {.smaller}
 
