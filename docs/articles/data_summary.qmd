@@ -90,8 +90,6 @@ ggplot(body_site_data, aes(x = Number_of_Samples, y = Body_Site)) +
 
 ## Sample Distribution by Country {.smaller}
 
-The study collected samples from individuals across multiple countries.
-
 ```{r}
 library(ggplot2)
 library(dplyr)
