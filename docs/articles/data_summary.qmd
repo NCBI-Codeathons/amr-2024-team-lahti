@@ -1,5 +1,5 @@
 ---
-title: Lee et al. (2023)
+title: Data Summary
 format: 
   revealjs:
     theme: white
@@ -14,7 +14,7 @@ format:
 
 ![](images/Capture.PNG)
 
-The data used comes from the study titled "Population-level impacts of antibiotic usage on the human gut microbiome", published in Nature Communications in 2023 by Lee et al. This large-scale study includes a total of 9,251 samples collected from various human body sites and countries.
+This large-scale study includes a total of 9,251 samples collected from various human body sites and countries.
 
 ## Aims of the study {.smaller}
 
@@ -24,15 +24,21 @@ The data used comes from the study titled "Population-level impacts of antibioti
 
 ## Methods: Data Collection & Compilation {.smaller}
 
--   Manually curated ARG families from CARD database (n=752)   
+-   *Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download*
 
+-   Metagenomic assemblies retrieved from [Pasolli et al.](http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html)
+
+```{=html}
+<!-- -->
+```
 -   6104 adult gut metagenome samples from 20 countries after refinning
 
 -   curatedMetagenomeData R package for retrieving the sample metadata
 
--   Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download
-
--   Metagenomic assemblies retrieved from [Pasolli et al.](http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html)
+```{=html}
+<!-- -->
+```
+-   Manually curated ARG families from CARD database (n=752)   
 
 ## Original Data Sample Distribution {.smaller}
 
@@ -132,18 +138,21 @@ ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
 
 The data has been carefully subsetted to include samples that meet specific criteria, such as:
 
--   **SCGs:** Selected samples with all **40 Single-Copy Genes (SCGs)** recovered (`Tier_2.Recover_all_40_SCGs`).
-
 -   **Body Site:** Limited to **stool samples** (`BodySite`).
-
--   **Age Category:** Included only **adult subjects** (`AgeCategory`).
 
 -   **Health Status:** Focused on **healthy individuals** not currently using antibiotics (`Disease` and `antibiotic_current_use_binary`).
 
-This subset of the data, now represented as a `TreeSummarizedExperiment` (TSE) object, is optimized for further analysis and is available for advanced exploration of the antibiotic resistance gene (ARG) load, diversity, and related metadata. \
+-   **Age Category:** Included only **adult subjects** (`AgeCategory`).
+
+```{=html}
+<!-- -->
+```
+-   **SCGs:** Selected samples with all **40 Single-Copy Genes (SCGs)** recovered
+
+This subset of the data, now represented as a `TreeSummarizedExperiment` (TSE) object, is optimized for further analysis and is available for advanced exploration of the antibiotic resistance gene (ARG) load, diversity, and related metadata.\
 To explore the metadata and access the object, visit [this link](https://github.com/microbiome/data/blob/main/Lee2023/README.md).
 
-## Sample Metadata  {.smaller}
+## Sample Metadata {.smaller}
 
 The subsetted dataset contains key metadata that provides context to each sample.
 
@@ -197,7 +206,7 @@ combined_summary_df %>%
 
 ```
 
-## Distribution of Sample Metadata  {.smaller}
+## Distribution of Sample Metadata {.smaller}
 
 ![](images/country.png)
 
@@ -223,7 +232,7 @@ combined_summary_df %>%
 
 ![](images/median_read_length.png)
 
-## NDARO Dataset  {.smaller}
+## NDARO Dataset {.smaller}
 
 NDARO is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.
 

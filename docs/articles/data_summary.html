@@ -10,7 +10,7 @@
 <link href="data_summary_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.553">
 
-  <title>Lee et al.&nbsp;(2023)</title>
+  <title>Data Summary</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -330,7 +330,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Lee et al.&nbsp;(2023)</h1>
+  <h1 class="title">Data Summary</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -339,7 +339,7 @@
 <section id="data-source" class="slide level2 smaller">
 <h2>Data Source</h2>
 
-<img data-src="images/Capture.PNG" class="r-stretch"><p>The data used comes from the study titled “Population-level impacts of antibiotic usage on the human gut microbiome”, published in Nature Communications in 2023 by Lee et al.&nbsp;This large-scale study includes a total of 9,251 samples collected from various human body sites and countries.</p>
+<img data-src="images/Capture.PNG" class="r-stretch"><p>This large-scale study includes a total of 9,251 samples collected from various human body sites and countries.</p>
 </section>
 <section id="aims-of-the-study" class="slide level2 smaller">
 <h2>Aims of the study</h2>
@@ -351,11 +351,17 @@
 <section id="methods-data-collection-compilation" class="slide level2 smaller">
 <h2>Methods: Data Collection &amp; Compilation</h2>
 <ul>
-<li><p>Manually curated ARG families from CARD database (n=752)&nbsp; &nbsp;</p></li>
+<li><p><em>Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download</em></p></li>
+<li><p>Metagenomic assemblies retrieved from <a href="http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html">Pasolli et al.</a></p></li>
+</ul>
+<!-- -->
+<ul>
 <li><p>6104 adult gut metagenome samples from 20 countries after refinning</p></li>
 <li><p>curatedMetagenomeData R package for retrieving the sample metadata</p></li>
-<li><p>Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download</p></li>
-<li><p>Metagenomic assemblies retrieved from <a href="http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html">Pasolli et al.</a></p></li>
+</ul>
+<!-- -->
+<ul>
+<li>Manually curated ARG families from CARD database (n=752)&nbsp; &nbsp;</li>
 </ul>
 </section>
 <section id="original-data-sample-distribution" class="slide level2 smaller">
@@ -383,10 +389,13 @@
 <h2>Data Subsetting</h2>
 <p>The data has been carefully subsetted to include samples that meet specific criteria, such as:</p>
 <ul>
-<li><p><strong>SCGs:</strong> Selected samples with all <strong>40 Single-Copy Genes (SCGs)</strong> recovered (<code>Tier_2.Recover_all_40_SCGs</code>).</p></li>
 <li><p><strong>Body Site:</strong> Limited to <strong>stool samples</strong> (<code>BodySite</code>).</p></li>
-<li><p><strong>Age Category:</strong> Included only <strong>adult subjects</strong> (<code>AgeCategory</code>).</p></li>
 <li><p><strong>Health Status:</strong> Focused on <strong>healthy individuals</strong> not currently using antibiotics (<code>Disease</code> and <code>antibiotic_current_use_binary</code>).</p></li>
+<li><p><strong>Age Category:</strong> Included only <strong>adult subjects</strong> (<code>AgeCategory</code>).</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>SCGs:</strong> Selected samples with all <strong>40 Single-Copy Genes (SCGs)</strong> recovered</li>
 </ul>
 <p>This subset of the data, now represented as a <code>TreeSummarizedExperiment</code> (TSE) object, is optimized for further analysis and is available for advanced exploration of the antibiotic resistance gene (ARG) load, diversity, and related metadata.<br>
 To explore the metadata and access the object, visit <a href="https://github.com/microbiome/data/blob/main/Lee2023/README.md">this link</a>.</p>
