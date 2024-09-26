@@ -225,3 +225,19 @@ combined_summary_df %>%
 ![](images/numBases.png)
 
 ![](images/median_read_length.png)
+
+## NDARO Dataset  {.smaller}
+
+NDARO is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.
+
+NDARO allows:
+
+-   [Browse a curated database of AMR genes](https://www.ncbi.nlm.nih.gov/pathogens/isolates#refgene/)
+
+-   Identify AMR genes in bacterial genomes with [AMRFinder](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/)
+
+-   Identify bacterial genomes with AMR genes in the [Isolate Browser](https://www.ncbi.nlm.nih.gov/pathogens/isolates#/search/)
+
+-   [Submit sequence and phenotype data related to AMR](https://www.ncbi.nlm.nih.gov/pathogens/submit)
+
+Link to NDARO: <https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/>
