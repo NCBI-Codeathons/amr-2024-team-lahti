@@ -26,7 +26,7 @@ This large-scale study includes a total of 9,251 samples collected from various 
 
 -   *Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download*
 
--   Metagenomic assemblies retrieved from [Pasolli et al.](http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html)
+-   Metagenomic assemblies retrieved from the paper ["Extensive unexplored human microbiome diversity revealed by over 150,000 genomes from metagenomes spanning age, geography, and lifestyle"](http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html)
 
 ```{=html}
 <!-- -->
@@ -232,9 +232,9 @@ combined_summary_df %>%
 
 ![](images/median_read_length.png)
 
-## NDARO Dataset {.smaller}
+## **National Database of Antibiotic Resistant Organisms** {.smaller}
 
-NDARO is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.
+**National Database of Antibiotic Resistant Organisms**NDARO is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.
 
 NDARO allows:
 
