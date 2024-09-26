@@ -45,7 +45,8 @@ lapply(packages, require, character.only = TRUE)
 ## Load and explore data
 
 ```{r}
-tse <- readRDS('../data/Lee2023.rds')
+data("Lee2023", package = "teamlahti" )
+tse <- Lee2023
 tse
 ```
 
@@ -58,11 +59,11 @@ The data is of class TreeSummarizedExperiment (TSE) with following data containe
 
 -   **colData**: This is data about the samples
 
--   **Alternative experiments (altExp)**: Any alternative counts table or experiments are stored in this slot. In our case we have added another TSE object with abudance of antibiotic resistance genes in our samples. In our case there are two alternative experiments namely, '*read*' and '*assembly*'. We will be focussing on '*read*' based experiment.
+-   **Alternative experiments (altExp)**: Any alternative counts table or experiments are stored in this slot. In our case we have added another TSE object with abundance of antibiotic resistance genes in our samples. In our case there are two alternative experiments namely, '*read*' and '*assembly*'. We will be focusing on '*read*' based experiment.
 
 **Note**: Read more about data containers on our book, [**Orchestrating Microbiome Analysis with Bioconductor**](https://microbiome.github.io/OMA/) ([Lahti et al. 2021](https://microbiome.github.io/OMA/docs/devel/#ref-OMA)).
 
-In this tutorial we will be focussing on analysing the AMR data, present in altExp container.
+In this tutorial we will be focusing on analysing the AMR data, present in altExp container.
 :::
 
 ```{r}
@@ -130,7 +131,7 @@ plotAbundanceDensity(
 
 This plot gives an idea about the abundances of some AMRs like tetQ are more in westernized population.
 
-Lets agglomerate data based on anitbiotic class present in rowData and see the same plots at antibiotics class level:
+Lets agglomerate data based on antibiotic class present in rowData and see the same plots at antibiotics class level:
 
 ```{r}
 # Agglomerate

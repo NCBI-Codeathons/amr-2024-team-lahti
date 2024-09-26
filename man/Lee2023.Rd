@@ -7,32 +7,7 @@
 \format{
 A TreeSummarizedExperiment with 4182 features and 5195 samples. The
 rowData contains taxonomic information at Kingdom, Phylum, Class, Order,
-Family and Genus level. The colData includes:
-
-\describe{
-\item{Tier_1.Exclusion_before_analysis}
-\item{Tier_2.Recover_all_40_SCGs}
-\item{Tier_3.Adult_stool_from_well_sampled_countries}
-\item{Tier_4.Adult_stool_from_healthy_subjects_not_currently_on_antibiotic}
-\item{Study}
-\item{Sample_ID}
-\item{Sample_assembly_ID}
-\item{NumReads}
-\item{NumBases}
-\item{MedianReadLength}
-\item{BodySite}
-\item{BodySubsite}
-\item{AgeYears}
-\item{AgeCategory}
-\item{InfantAge}
-\item{Westernized}
-\item{Country}
-\item{Gender}
-\item{BMI}
-\item{Disease}
-\item{antibiotic_exposure_status_descriptive}
-\item{antibiotic_current_use_binary}
-}
+Family and Genus level. See \href{https://ncbi-codeathons.github.io/amr-2024-team-lahti/articles/data_summary.html}{dataset summary}.
 }
 \usage{
 data(Lee2023)

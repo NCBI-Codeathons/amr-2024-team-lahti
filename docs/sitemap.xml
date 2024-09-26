@@ -1,21 +1,60 @@
-<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/404.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/LICENSE-text.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/LICENSE.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/addqmd.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/data_analysis.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/data_summary.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/index.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/site_libs/revealjs/plugin/notes/speaker-view.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/standout_presentation.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/standout_transcripts.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/teamlahti.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/authors.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/index.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/news/index.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/reference/Lee2023.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/reference/index.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/reference/teamlahti-datasets.html</loc></url>
-<url><loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/reference/teamlahti-package.html</loc></url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/404.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/addqmd.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/data_analysis.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/data_summary.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/site_libs/revealjs/plugin/notes/speaker-view.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/standout_presentation.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/standout_transcripts.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/articles/teamlahti.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/reference/Lee2023.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/reference/teamlahti-datasets.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/reference/teamlahti-package.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/NCBI-Codeathons/amr-2024-team-lahti/reference/teamlahti.html</loc>
+  </url>
 </urlset>
-
