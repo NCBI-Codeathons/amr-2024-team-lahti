@@ -1,0 +1,149 @@
+---
+title: Data Summary
+format: 
+  revealjs:
+    theme: white
+    font-family: "Times New Roman"
+    slideNumber: true
+    scrollable: true
+    
+    transition: slide
+---
+
+## Data Source  {.smaller}
+
+![](images/Capture.PNG)
+
+The data used comes from the study titled "Population-level impacts of antibiotic usage on the human gut microbiome", published in Nature Communications in 2023 by Lee et al. This large-scale study includes a total of 9,251 samples collected from various human body sites and countries.
+
+## Aims of the study  {.smaller}
+
+The study investigates how antibiotic consumption affects the abundance and diversity of antibiotic resistance genes (ARGs) in the human gut microbiome across different populations.
+
+By analyzing 8,972 metagenomic samples from healthy individuals who were not taking antibiotics, correlations between per capita antibiotic usage rates and the prevalence of ARGs in different countries was identified.
+
+The study also explores the how resistance genes are transferred among microbial species, identifies distinct resistotypes within the human gut microbiome, and assesses how these factors contribute to the overall resistome.
+
+## Sample Distribution by Body Site  {.smaller}
+
+The dataset comprises samples from six major body sites, with the distribution as follows:
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(scales)
+library(RColorBrewer)
+
+body_site_data <- data.frame(
+  Body_Site = c("Gut", "Oral Cavity", "Skin", "Airway", "Nasal Cavity", "Vagina"),
+  Number_of_Samples = c(7589, 746, 380, 118, 55, 83)
+)
+
+body_site_data <- body_site_data %>%
+  arrange(desc(Number_of_Samples))
+
+body_site_data$Body_Site <- factor(body_site_data$Body_Site, 
+                                   levels = body_site_data$Body_Site)
+
+palette <- brewer.pal(n = 6, name = "Greens")
+
+ggplot(body_site_data, aes(x = Number_of_Samples, y = Body_Site)) +
+  geom_bar(stat = "identity", fill = palette[5]) +
+  geom_text(aes(label = comma(Number_of_Samples)), 
+            hjust = -0.1, 
+            size = 4, 
+            color = "black") +
+  scale_x_continuous(labels = comma, 
+                     expand = expansion(mult = c(0, 0.1))) +
+  labs(
+    title = "Sample Distribution by Body Site",
+    x = "Number of Samples",
+    y = "Body Site"
+  ) +
+  theme_minimal(base_size = 14, base_family = "Times New Roman") +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.margin = margin(10, 10, 10, 10)
+  ) +
+  coord_cartesian(clip = "off")
+```
+
+## Sample Distribution by Country {.smaller}
+
+The study collected samples from individuals across multiple countries.
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(scales)
+library(ggtext)
+library(RColorBrewer)
+
+country_sample_data <- data.frame(
+  Country = c("Austria", "Canada", "China", "Denmark", "France", "Germany", "Israel", 
+              "Italy", "Kazakhstan", "Madagascar", "Netherlands", "Sweden", "USA", 
+              "Bangladesh", "Fiji", "United Kingdom", "Tanzania"),
+  Number_of_Samples = c(154, 328, 1342, 580, 157, 292, 956, 536, 172, 112, 526, 
+                        600, 1431, 47, 312, 344, 67)
+)
+
+country_sample_data <- country_sample_data %>%
+  arrange(desc(Number_of_Samples))
+
+country_sample_data$Country <- factor(country_sample_data$Country, 
+                                     levels = country_sample_data$Country)
+
+palette <- brewer.pal(n = 8, name = "Blues")
+
+ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
+  geom_bar(stat = "identity", fill = palette[6]) +
+  geom_text(aes(label = comma(Number_of_Samples)), 
+            hjust = -0.1, 
+            size = 4, 
+            color = "black") +
+  scale_x_continuous(labels = comma, 
+                     expand = expansion(mult = c(0, 0.1))) +
+  labs(
+    title = "Sample Distribution by Country",
+    x = "Number of Samples",
+    y = "Country"
+  ) +
+  theme_minimal(base_size = 14, base_family = "Times New Roman") +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.margin = margin(10, 10, 10, 10)
+  ) +
+  coord_cartesian(clip = "off")
+```
+
+## Methods: Data Collection & Compilation  {.smaller}
+
+-   Manually curated ARG families from CARD database (n=752)   
+
+-   6104 adult gut metagenome samples from 20 countries after refinning
+
+-   curatedMetagenomeData R package for retrieving the sample metadata
+
+-   Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download
+
+-   Metagenomic assemblies retrieved from [Pasolli et al.](http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html)
+
+## Data Subsetting  {.smaller}
+
+#### **Subset Criteria:**
+
+-   **SCGs:** Selected samples with all **40 Single-Copy Genes (SCGs)** recovered (`Tier_2.Recover_all_40_SCGs`).
+
+-   **Body Site:** Limited to **stool samples** (`BodySite`).
+
+-   **Age Category:** Included only **adult subjects** (`AgeCategory`).
+
+-   **Health Status:** Focused on **healthy individuals** not currently using antibiotics (`Disease` and `antibiotic_current_use_binary`).
