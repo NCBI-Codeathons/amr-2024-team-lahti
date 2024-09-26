@@ -143,7 +143,7 @@ The data has been carefully subsetted to include samples that meet specific crit
 This subset of the data, now represented as a `TreeSummarizedExperiment` (TSE) object, is optimized for further analysis and is available for advanced exploration of the antibiotic resistance gene (ARG) load, diversity, and related metadata. \
 To explore the metadata and access the object, visit [this link](https://github.com/microbiome/data/blob/main/Lee2023/README.md).
 
-## Sample Metadata
+## Sample Metadata  {.smaller}
 
 The subsetted dataset contains key metadata that provides context to each sample.
 
@@ -188,14 +188,12 @@ combined_summary_df <- rbind(categorical_summary_df, numeric_summary_df)
 
 # Create the combined table using kableExtra
 combined_summary_df %>%
-  kbl(caption = "Summary of Categorical and Numeric Metadata Features", 
-      col.names = c("Feature", "Summary")) %>%
+  kbl(col.names = c("Feature", "Summary")) %>%
   kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), 
                 full_width = F, font_size = 20) %>%
   column_spec(1, bold = TRUE) %>%
   row_spec(0, bold = TRUE) %>%
-  add_header_above(c(" " = 1, "Summary of Features" = 1)) %>%
-  footnote(general = "This table summarizes sample metadata, including levels for and statistical summaries")
+  add_header_above(c(" " = 1, "Summary of Features" = 1))
 
 ```
 
