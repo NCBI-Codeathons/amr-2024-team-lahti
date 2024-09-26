@@ -125,16 +125,6 @@
 <!-- badges: start -->
 
 <div class="section level2">
-<h2 id="team-roles">Team roles<a class="anchor" aria-label="anchor" href="#team-roles"></a>
-</h2>
-<ul>
-<li><p><strong>Team Lead</strong> / <a href="https://github.com/antagomir" class="external-link">Leo Lahti</a> Conveys scientific objectives to the team, and coordinates work.</p></li>
-<li><p><strong>Tech Lead</strong> / <a href="https://github.com/ake123" class="external-link">Akewak Jeba</a> &amp; <a href="https://github.com/Daenarys8" class="external-link">Muluh Geraldson</a> Coordinates software installation and data acquisition, manages version control and the team’s GitHub repository, troubleshoots technical issues with tech support</p></li>
-<li><p><strong>Writer</strong> / <a href="https://github.com/microDM" class="external-link">Dattaray Mongad</a> &amp; <a href="https://github.com/nixonbyl" class="external-link">Nitin Bayal</a> Ensures that all work is documented, manages GitHub README and Team Report</p></li>
-<li><p><strong>Flex</strong> / <a href="https://github.com/mahkamehsalehi" class="external-link">Mahkameh Salehi</a> &amp; <a href="https://github.com/ShivangPB" class="external-link">Shivang Bhanushali</a> Fills various roles and assumes responsibilities for tasks as needed</p></li>
-</ul>
-</div>
-<div class="section level2">
 <h2 id="project-goals">Project goals<a class="anchor" aria-label="anchor" href="#project-goals"></a>
 </h2>
 <p><em>This project aims to develop <a href="https://www.bioconductor.org/" class="external-link">R/Bioconductor</a> tools to analyze AMR data by integrating publicly available human gut metagenomes with ARG profiles (e.g.  <a href="https://www.nature.com/subjects/metagenomics" class="external-link">metagenomics</a>) and epidemiological, transmission data to study AMR gene co-migration.</em></p>
@@ -148,43 +138,43 @@ Workflow of proposed framework
 </figcaption></figure><p><a href="/standouts/standout-day1.odp">Standout presentation</a></p>
 </div>
 <div class="section level2">
-<h2 id="overall-analysis-plan">Overall analysis plan<a class="anchor" aria-label="anchor" href="#overall-analysis-plan"></a>
+<h2 id="analysis-plan">Analysis plan<a class="anchor" aria-label="anchor" href="#analysis-plan"></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li>
 <em>Prepare data</em>
 <ul>
-<li>Prepare the <a href="https://github.com/microbiome/data/tree/main/Lee2023" class="external-link">Lee et al. (2023)</a> data set for analysis in R/Bioc and provide sufficient documentation in the Github repository. This can be done by adapting and refining the previously created data set. See <a href="https://ncbi-codeathons.github.io/amr-2024-team-lahti/articles/data_summary.html" class="external-link">data summary</a>.</li>
+<li>Prepare the <a href="https://github.com/microbiome/data/tree/main/Lee2023" class="external-link">Lee et al. (2023)</a> dataset for analysis in R/Bioc. See <a href="https://ncbi-codeathons.github.io/amr-2024-team-lahti/articles/data_summary.html" class="external-link">data summary</a>.</li>
+<li>Link the dataset to the <a href="https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/" class="external-link">NDARO database</a> on microbial organisms and resistance genes.</li>
 </ul>
 </li>
 <li>
 <em>Prepare documentation</em>
 <ul>
-<li><p>Create minimal website for this project using pkgdown (perhaps we need to convert the repo into a minimal R package to do this? Should be easy, a pkg template is readily available via RStudio)</p></li>
-<li><p>Prepare summary of the data set to be presented on a slide set; for examples, you can see here for examples (“Example data”) and their source code -&gt; render the slide set as html, we can later see how to publish it.</p></li>
-<li><p>Create one or more tutorials on resistome data analysis using the latest R/Bioconductor methods and release them via the Github repository (vignettes/ subfolder); these can be browsed via the github homepage (created in point (2))</p></li>
-<li><p>Motivate the use of Bioconductor methods.</p></li>
-<li><p>To add documents to the minimal website, see <a href="https://ncbi-codeathons.github.io/amr-2024-team-lahti/articles/addqmd.html" class="external-link">technical guide</a></p></li>
+<li>Create minimal website for this project.</li>
+<li>Prepare summary of the dataset.</li>
+<li>Create tutorials on resistome data analysis.</li>
+<li>To add documents to the minimal website, see <a href="https://ncbi-codeathons.github.io/amr-2024-team-lahti/articles/addqmd.html" class="external-link">technical guide</a>
+</li>
 </ul>
 </li>
 <li>
 <em>Analyse the resistome data set</em>
 <ul>
-<li>Provide exploratory summaries of the data set using R/Bioc methods.</li>
-<li>Replicate of some key results from the manuscript using R/Bioconductor methods to verify the data.</li>
-<li>Add new analyses (TBD)</li>
+<li>Provide exploratory summaries of the dataset using R/Bioc methods.</li>
+<li>Replicate some key results from the <a href="https://www.nature.com/articles/s41467-023-36633-7" class="external-link">manuscript</a> to verify the data.</li>
 </ul>
 </li>
 <li>
 <em>Develop methodology</em>
 <ul>
-<li>Consider automation of specific analysis or visualization methods as functions that can be share via new R pkg, or existing packages.</li>
+<li>Implement visualization methods as functions.</li>
 </ul>
 </li>
 <li>
 <em>Finalize workflow</em>
 <ul>
-<li>Polish the data analysis workflow/s &amp; documentation so that they can be used as training material on resistome analyses using R/Bioconductor.</li>
+<li>Polish the data analysis workflow/s &amp; documentation.</li>
 </ul>
 </li>
 </ol>
@@ -198,6 +188,16 @@ Workflow of proposed framework
 <h2 id="future-work">Future work<a class="anchor" aria-label="anchor" href="#future-work"></a>
 </h2>
 <p>Future work will standardize and automate some of the key tools, and release them through open source software libraries such as <em><a href="https://microbiome.github.io/mia/" class="external-link">mia</a></em> in R/Bioconductor.</p>
+</div>
+<div class="section level2">
+<h2 id="team-roles">Team roles<a class="anchor" aria-label="anchor" href="#team-roles"></a>
+</h2>
+<ul>
+<li><p><strong>Team Lead</strong> / <a href="https://github.com/antagomir" class="external-link">Leo Lahti</a> Conveys scientific objectives to the team, and coordinates work.</p></li>
+<li><p><strong>Tech Lead</strong> / <a href="https://github.com/ake123" class="external-link">Akewak Jeba</a> &amp; <a href="https://github.com/Daenarys8" class="external-link">Muluh Geraldson</a> Coordinates software installation and data acquisition, manages version control and the team’s GitHub repository, troubleshoots technical issues with tech support</p></li>
+<li><p><strong>Writer</strong> / <a href="https://github.com/microDM" class="external-link">Dattaray Mongad</a> &amp; <a href="https://github.com/nixonbyl" class="external-link">Nitin Bayal</a> Ensures that all work is documented, manages GitHub README and Team Report</p></li>
+<li><p><strong>Flex</strong> / <a href="https://github.com/mahkamehsalehi" class="external-link">Mahkameh Salehi</a> &amp; <a href="https://github.com/ShivangPB" class="external-link">Shivang Bhanushali</a> Fills various roles and assumes responsibilities for tasks as needed</p></li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="ncbi-codeathon-disclaimer">NCBI codeathon disclaimer<a class="anchor" aria-label="anchor" href="#ncbi-codeathon-disclaimer"></a>

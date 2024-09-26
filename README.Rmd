@@ -26,21 +26,6 @@ GitHub](https://img.shields.io/github/watchers/NCBI-Codeathons/amr-2024-team-lah
 GitHub](https://img.shields.io/github/stars/NCBI-Codeathons/amr-2024-team-lahti.svg?style=social)](https://github.com/NCBI-Codeathons/amr-2024-team-lahti/stargazers)
 <!-- badges: end -->
 
-## Team roles
-
-* __Team Lead__ / [Leo Lahti](https://github.com/antagomir)
-Conveys scientific objectives to the team, and coordinates work.
-
-* __Tech Lead__ / [Akewak Jeba](https://github.com/ake123) & [Muluh Geraldson](https://github.com/Daenarys8)
-Coordinates software installation and data acquisition, manages version control 
-and the team’s GitHub repository, troubleshoots technical issues with tech support
-
-* __Writer__ / [Dattaray Mongad](https://github.com/microDM) & [Nitin Bayal](https://github.com/nixonbyl)
-Ensures that all work is documented, manages GitHub README and Team Report
-
-* __Flex__ / [Mahkameh Salehi](https://github.com/mahkamehsalehi) & [Shivang Bhanushali](https://github.com/ShivangPB)
-Fills various roles and assumes responsibilities for tasks as needed
-
 ## Project goals
 
 _This project aims to develop [R/Bioconductor](https://www.bioconductor.org/) 
@@ -61,42 +46,28 @@ methods. The outcomes are reported via an automated pkgdown website.
 
 [Standout presentation](/standouts/standout-day1.odp)
 
-## Overall analysis plan
+## Analysis plan
 1. _Prepare data_ 
       * Prepare the [Lee et al. (2023)](https://github.com/microbiome/data/tree/main/Lee2023) 
-      data set for analysis in R/Bioc and provide sufficient documentation in 
-      the Github repository. This can be done by adapting and refining the 
-      previously created data set. See [data summary](https://ncbi-codeathons.github.io/amr-2024-team-lahti/articles/data_summary.html).
+      dataset for analysis in R/Bioc. See [data summary](https://ncbi-codeathons.github.io/amr-2024-team-lahti/articles/data_summary.html).
+      * Link the dataset to the [NDARO database](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/) 
+      on microbial organisms and resistance genes.
 
 2. _Prepare documentation_
-      * Create minimal website for this project using pkgdown (perhaps we need 
-      to convert the repo into a minimal R package to do this? Should be easy, a 
-      pkg template is readily available via RStudio)
-    
-      * Prepare summary of the data set to be presented on a slide set; for 
-      examples, you can see here for examples (“Example data”) and their source 
-      code -> render the slide set as html, we can later see how to publish it.
-      
-      * Create one or more tutorials on resistome data analysis using the latest 
-        R/Bioconductor methods and release them via the Github repository 
-        (vignettes/ subfolder); these can be browsed via the github homepage 
-        (created in point (2))
-      * Motivate the use of Bioconductor methods.
+      * Create minimal website for this project.
+      * Prepare summary of the dataset.
+      * Create tutorials on resistome data analysis.
       * To add documents to the minimal website, see [technical guide](https://ncbi-codeathons.github.io/amr-2024-team-lahti/articles/addqmd.html)
   
 3. _Analyse the resistome data set_
-      * Provide exploratory summaries of the data set using R/Bioc methods.
-      * Replicate of some key results from the manuscript using R/Bioconductor 
-        methods to verify the data.
-      * Add new analyses (TBD)
+      * Provide exploratory summaries of the dataset using R/Bioc methods.
+      * Replicate some key results from the [manuscript](https://www.nature.com/articles/s41467-023-36633-7) to verify the data.
   
 4. _Develop methodology_
-      * Consider automation of specific analysis or visualization methods as functions 
-        that can be share via new R pkg, or existing packages.
+      * Implement visualization methods as functions.
     
 5. _Finalize workflow_
-      * Polish the data analysis workflow/s & documentation so that they can be used 
-      as training material on resistome analyses using R/Bioconductor.
+      * Polish the data analysis workflow/s & documentation.
 
 ## Results
 The main outcome of this work is the reproducible project site including data 
@@ -108,6 +79,21 @@ discoveries, methods development and educational purposes.
 Future work will standardize and automate some of the key tools, and release 
 them through open source software libraries such as 
 _[mia](https://microbiome.github.io/mia/)_ in R/Bioconductor.
+
+## Team roles
+
+* __Team Lead__ / [Leo Lahti](https://github.com/antagomir)
+Conveys scientific objectives to the team, and coordinates work.
+
+* __Tech Lead__ / [Akewak Jeba](https://github.com/ake123) & [Muluh Geraldson](https://github.com/Daenarys8)
+Coordinates software installation and data acquisition, manages version control 
+and the team’s GitHub repository, troubleshoots technical issues with tech support
+
+* __Writer__ / [Dattaray Mongad](https://github.com/microDM) & [Nitin Bayal](https://github.com/nixonbyl)
+Ensures that all work is documented, manages GitHub README and Team Report
+
+* __Flex__ / [Mahkameh Salehi](https://github.com/mahkamehsalehi) & [Shivang Bhanushali](https://github.com/ShivangPB)
+Fills various roles and assumes responsibilities for tasks as needed
 
 ## NCBI codeathon disclaimer
 
