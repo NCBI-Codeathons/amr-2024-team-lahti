@@ -143,16 +143,16 @@ ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
 
 The data has been carefully subsetted to include samples that meet specific criteria, such as:
 
--   **Body Site:** Limited to **stool samples** (`BodySite`).
+-   **Body Site:** Limited to **stool samples**.
 
--   **Health Status:** Focused on **healthy individuals** not currently using antibiotics (`Disease` and `antibiotic_current_use_binary`).
+-   **Health Status:** Focused on **healthy individuals** not currently using antibiotics.
 
--   **Age Category:** Included only **adult subjects** (`AgeCategory`).
+-   **Age Category:** Included only **adult subjects**.
 
 ```{=html}
 <!-- -->
 ```
--   **SCGs:** Selected samples with all **40 Single-Copy Genes (SCGs)** recovered
+-   **SCGs:** Selected samples with all **40 Single-Copy Genes (SCGs)** recovered .
 
 This subset of the data, now represented as a `TreeSummarizedExperiment` (TSE) object, is optimized for further analysis and is available for advanced exploration of the antibiotic resistance gene (ARG) load, diversity, and related metadata.\
 To explore the metadata and access the object, visit [this link](https://github.com/microbiome/data/blob/main/Lee2023/README.md).
