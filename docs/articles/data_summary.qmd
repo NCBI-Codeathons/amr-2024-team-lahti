@@ -199,3 +199,29 @@ combined_summary_df %>%
   footnote(general = "This table summarizes sample metadata, including levels for categorical features and statistical summaries for numeric features.")
 
 ```
+
+## Distribution of Sample Metadata  {.smaller}
+
+![](images/country.png)
+
+![](images/age_category.png)
+
+![](images/age_years.png)
+
+![](images/gender.png)
+
+![](images/Disease.png)
+
+![](images/ab_current_bi.png)
+
+![](images/ab_exposure.png)
+
+![](images/body_subsite.png)
+
+![](images/BMI.png)
+
+![](images/NumReads.png)
+
+![](images/numBases.png)
+
+![](images/median_read_length.png)
