@@ -46,7 +46,7 @@ library(data.table)
 row_data <- fread("data/SGB_info.taxonomy.tsv", sep="\t")
 rownames(row_data) <- as.character(row_data$sgbid)
 # renaming taxonomy ranks 
-colnames(row_data)[2:8] <- c("Kingdom", "Phylum", "Class", "Order",
+colnames(row_data)[3:9] <- c("Kingdom", "Phylum", "Class", "Order",
                              "Family", "Genus", "Species")
 
 row_data <- as.data.frame(row_data)
