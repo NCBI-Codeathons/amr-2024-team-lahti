@@ -22,7 +22,17 @@ The data used comes from the study titled "Population-level impacts of antibioti
 
 -   Analyzing samples from healthy individuals, it finds links between national antibiotic usage and ARG prevalence, while also examining ARG transfer and resistotype patterns in the gut.
 
-## Sample Metadata  {.smaller}
+## Methods: Data Collection & Compilation {.smaller}
+
+-   Manually curated ARG families from CARD database (n=752)   
+
+-   6104 adult gut metagenome samples from 20 countries after refinning
+
+-   curatedMetagenomeData R package for retrieving the sample metadata
+
+-   Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download
+
+-   Metagenomic assemblies retrieved from [Pasolli et al.](http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html)
 
 ## Sample Distribution by Body Site {.smaller}
 
@@ -124,18 +134,6 @@ ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
   coord_cartesian(clip = "off")
 ```
 
-## Methods: Data Collection & Compilation {.smaller}
-
--   Manually curated ARG families from CARD database (n=752)   
-
--   6104 adult gut metagenome samples from 20 countries after refinning
-
--   curatedMetagenomeData R package for retrieving the sample metadata
-
--   Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download
-
--   Metagenomic assemblies retrieved from [Pasolli et al.](http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html)
-
 ## Data Subsetting {.smaller}
 
 #### **Subset Criteria:**
@@ -151,34 +149,53 @@ ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
 ## Sample Metadata
 
 ```{r}
+
+# Load the necessary library
 library(kableExtra)
-library(dplyr)
-metadata_summary <- data.frame(
+
+# Numeric summary dataframe (from your provided data)
+numeric_summary_df <- data.frame(
+  Feature = c("NumReads", "NumBases", "MedianReadLength", "AgeYears", "BMI", "InfantAge"),
+  Summary = c(
+    "Mean: 53841103, Median: 46307042, Min: 2294514, Max: 356009214",
+    "Mean: 5268656695, Median: 4729928293, Min: 285954703, Max: 41957745000",
+    "Mean: 102, Median: 100, Min: 68, Max: 151",
+    "Mean: 46, Median: 45, Min: 12, Max: 91",
+    "Mean: 25, Median: 24, Min: 15, Max: 47",
+    "Mean: 1, Median: 1, Min: 1, Max: 1"
+  )
+)
+
+# Categorical summary dataframe (your existing categorical metadata)
+categorical_summary_df <- data.frame(
   Feature = c("Tier_1.Exclusion_before_analysis", "Tier_2.Recover_all_40_SCGs", 
               "Tier_3.Adult_stool_from_well_sampled_countries", 
               "Tier_4.Adult_stool_from_healthy_subjects_not_currently_on_antibiotic",
               "BodySite", "BodySubsite", "AgeCategory", "Westernized", 
               "Country", "Gender", "Disease", "antibiotic_exposure_status_descriptive", 
               "antibiotic_current_use_binary"),
-  Unique_Levels_or_Summary = c("Not_excluded", "Yes", "Yes", "No, Yes", 
-                               "Stool", "NA, stool, rectal_swab", 
-                               "Adult, School age, Senior", "Yes, No", 
-                               "ITA, SWE, FJI, MDG, CHN, DEU, KAZ, BGD, AUT, USA, CAN, FRA, DNK, ESP, NLD, MNG, PER, TZA, GBR, ISR", 
-                               "F, NA, M", 
-                               "Healthy, NA, RA, Cholera, CRC, Metabolic disorder, Colorectal adenoma, IBD, etc.",
-                               "NA, no exposure in 6 months, no exposure at least currently, etc.", 
-                               "NA, no, yes")
+  Summary = c("Not_excluded", "Yes", "Yes", "No, Yes", 
+              "Stool", "NA, stool, rectal_swab", 
+              "Adult, School age, Senior", "Yes, No", 
+              "ITA, SWE, FJI, MDG, CHN, DEU, KAZ, BGD, AUT, USA, CAN, FRA, DNK, ESP, NLD, MNG, PER, TZA, GBR, ISR", 
+              "F, NA, M", 
+              "Healthy, NA, RA, Cholera, CRC, Metabolic disorder, Colorectal adenoma, IBD, etc.",
+              "NA, no exposure in 6 months, no exposure at least currently, etc.", 
+              "NA, no, yes")
 )
 
-metadata_summary %>%
-  kbl(caption = "Metadata Summary", 
-      col.names = c("Feature", "Level")) %>%
-  kable_classic(full_width = FALSE, 
-                font_size = 20) %>%
-  column_spec(1, bold = TRUE) %>%  
-  kable_styling(latex_options = c("striped", "hold_position"), 
-                position = "center", 
-                full_width = FALSE) %>%
-  footnote(general = "This table summarizes the categorical metadata features and their levels.")
+# Combine both numeric and categorical summaries
+combined_summary_df <- rbind(categorical_summary_df, numeric_summary_df)
+
+# Create the combined table using kableExtra
+combined_summary_df %>%
+  kbl(caption = "Summary of Categorical and Numeric Metadata Features", 
+      col.names = c("Feature", "Summary")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), 
+                full_width = F, font_size = 20) %>%
+  column_spec(1, bold = TRUE) %>%
+  row_spec(0, bold = TRUE) %>%
+  add_header_above(c(" " = 1, "Summary of Features" = 1)) %>%
+  footnote(general = "This table summarizes sample metadata, including levels for categorical features and statistical summaries for numeric features.")
 
 ```

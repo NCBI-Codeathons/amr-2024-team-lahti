@@ -348,8 +348,15 @@
 <li><p>Analyzing samples from healthy individuals, it finds links between national antibiotic usage and ARG prevalence, while also examining ARG transfer and resistotype patterns in the gut.</p></li>
 </ul>
 </section>
-<section id="sample-metadata" class="slide level2 smaller">
-<h2>Sample Metadata</h2>
+<section id="methods-data-collection-compilation" class="slide level2 smaller">
+<h2>Methods: Data Collection &amp; Compilation</h2>
+<ul>
+<li><p>Manually curated ARG families from CARD database (n=752)&nbsp; &nbsp;</p></li>
+<li><p>6104 adult gut metagenome samples from 20 countries after refinning</p></li>
+<li><p>curatedMetagenomeData R package for retrieving the sample metadata</p></li>
+<li><p>Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download</p></li>
+<li><p>Metagenomic assemblies retrieved from <a href="http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html">Pasolli et al.</a></p></li>
+</ul>
 </section>
 <section id="sample-distribution-by-body-site" class="slide level2 smaller">
 <h2>Sample Distribution by Body Site</h2>
@@ -361,16 +368,6 @@
 <p>The study collected samples from individuals across multiple countries.</p>
 
 <img data-src="data_summary_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
-<section id="methods-data-collection-compilation" class="slide level2 smaller">
-<h2>Methods: Data Collection &amp; Compilation</h2>
-<ul>
-<li><p>Manually curated ARG families from CARD database (n=752)&nbsp; &nbsp;</p></li>
-<li><p>6104 adult gut metagenome samples from 20 countries after refinning</p></li>
-<li><p>curatedMetagenomeData R package for retrieving the sample metadata</p></li>
-<li><p>Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download</p></li>
-<li><p>Metagenomic assemblies retrieved from <a href="http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html">Pasolli et al.</a></p></li>
-</ul>
-</section>
 <section id="data-subsetting" class="slide level2 smaller">
 <h2>Data Subsetting</h2>
 <h4 id="subset-criteria"><strong>Subset Criteria:</strong></h4>
@@ -381,17 +378,28 @@
 <li><p><strong>Health Status:</strong> Focused on <strong>healthy individuals</strong> not currently using antibiotics (<code>Disease</code> and <code>antibiotic_current_use_binary</code>).</p></li>
 </ul>
 </section>
-<section id="sample-metadata-1" class="slide level2">
+<section id="sample-metadata" class="slide level2">
 <h2>Sample Metadata</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<table class="lightable-classic table" data-quarto-postprocess="true" style="font-size: 20px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
-<caption>Metadata Summary</caption>
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed" data-quarto-postprocess="true" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption>Summary of Categorical and Numeric Metadata Features</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Feature</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Level</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; empty-cells: hide; border-bottom: hidden;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Summary of Features
+</div></th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Feature</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; font-weight: bold;">Summary</th>
 </tr>
 </thead>
 <tbody>
@@ -447,18 +455,43 @@
 <td style="text-align: left; font-weight: bold;">antibiotic_current_use_binary</td>
 <td style="text-align: left;">NA, no, yes</td>
 </tr>
-</tbody><tfoot>
 <tr class="even">
+<td style="text-align: left; font-weight: bold;">NumReads</td>
+<td style="text-align: left;">Mean: 53841103, Median: 46307042, Min: 2294514, Max: 356009214</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">NumBases</td>
+<td style="text-align: left;">Mean: 5268656695, Median: 4729928293, Min: 285954703, Max: 41957745000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">MedianReadLength</td>
+<td style="text-align: left;">Mean: 102, Median: 100, Min: 68, Max: 151</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">AgeYears</td>
+<td style="text-align: left;">Mean: 46, Median: 45, Min: 12, Max: 91</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">BMI</td>
+<td style="text-align: left;">Mean: 25, Median: 24, Min: 15, Max: 47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">InfantAge</td>
+<td style="text-align: left;">Mean: 1, Median: 1, Min: 1, Max: 1</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
 <td style="text-align: left; padding: 0;"><span style="font-style: italic;">Note: </span></td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0;"><sup></sup> This table summarizes the categorical metadata features and their levels.</td>
+<tr class="even">
+<td style="text-align: left; padding: 0;"><sup></sup> This table summarizes sample metadata, including levels for categorical features and statistical summaries for numeric features.</td>
 <td style="text-align: left;"></td>
 </tr>
 </tfoot>
 
 </table>
+</div>
 
 
 </div>
