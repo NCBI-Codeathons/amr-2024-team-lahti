@@ -40,7 +40,9 @@ This large-scale study includes a total of 9,251 samples collected from various 
 ```
 -   Manually curated ARG families from CARD database (n=752)   
 
-## Original Data Sample Distribution {.smaller}
+## Sample Distribution by Body Site {.smaller}
+
+The dataset comprises samples from six major body sites, with the distribution as follows:
 
 ```{r}
 library(ggplot2)
@@ -85,6 +87,10 @@ ggplot(body_site_data, aes(x = Number_of_Samples, y = Body_Site)) +
   ) +
   coord_cartesian(clip = "off")
 ```
+
+## Sample Distribution by Country {.smaller}
+
+The study collected samples from individuals across multiple countries.
 
 ```{r}
 library(ggplot2)
@@ -132,6 +138,7 @@ ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
     plot.margin = margin(10, 10, 10, 10)
   ) +
   coord_cartesian(clip = "off")
+
 ```
 
 ## Data Subsetting {.smaller}
@@ -208,8 +215,6 @@ combined_summary_df %>%
 
 ## Distribution of Sample Metadata {.smaller}
 
-![](images/country.png)
-
 ![](images/age_category.png)
 
 ![](images/age_years.png)
@@ -234,7 +239,7 @@ combined_summary_df %>%
 
 ## **National Database of Antibiotic Resistant Organisms** {.smaller}
 
-**National Database of Antibiotic Resistant Organisms**NDARO is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.
+**National Database of Antibiotic Resistant Organisms (**NDARO) is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.
 
 NDARO allows:
 
