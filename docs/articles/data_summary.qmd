@@ -1,5 +1,5 @@
 ---
-title: Data Summary
+title: Lee et al. (2023)
 format: 
   revealjs:
     theme: white
@@ -34,9 +34,7 @@ The data used comes from the study titled "Population-level impacts of antibioti
 
 -   Metagenomic assemblies retrieved from [Pasolli et al.](http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html)
 
-## Sample Distribution by Body Site {.smaller}
-
-The dataset comprises samples from six major body sites, with the distribution as follows:
+## Original Data Sample Distribution {.smaller}
 
 ```{r}
 library(ggplot2)
@@ -81,10 +79,6 @@ ggplot(body_site_data, aes(x = Number_of_Samples, y = Body_Site)) +
   ) +
   coord_cartesian(clip = "off")
 ```
-
-## Sample Distribution by Country {.smaller}
-
-The study collected samples from individuals across multiple countries.
 
 ```{r}
 library(ggplot2)
@@ -136,7 +130,7 @@ ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
 
 ## Data Subsetting {.smaller}
 
-#### **Subset Criteria:**
+The data has been carefully subsetted to include samples that meet specific criteria, such as:
 
 -   **SCGs:** Selected samples with all **40 Single-Copy Genes (SCGs)** recovered (`Tier_2.Recover_all_40_SCGs`).
 
@@ -146,7 +140,12 @@ ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
 
 -   **Health Status:** Focused on **healthy individuals** not currently using antibiotics (`Disease` and `antibiotic_current_use_binary`).
 
+This subset of the data, now represented as a `TreeSummarizedExperiment` (TSE) object, is optimized for further analysis and is available for advanced exploration of the antibiotic resistance gene (ARG) load, diversity, and related metadata. \
+To explore the metadata and access the object, visit [this link](https://github.com/microbiome/data/blob/main/Lee2023/README.md).
+
 ## Sample Metadata
+
+The subsetted dataset contains key metadata that provides context to each sample.
 
 ```{r}
 
@@ -196,7 +195,7 @@ combined_summary_df %>%
   column_spec(1, bold = TRUE) %>%
   row_spec(0, bold = TRUE) %>%
   add_header_above(c(" " = 1, "Summary of Features" = 1)) %>%
-  footnote(general = "This table summarizes sample metadata, including levels for categorical features and statistical summaries for numeric features.")
+  footnote(general = "This table summarizes sample metadata, including levels for and statistical summaries")
 
 ```
 

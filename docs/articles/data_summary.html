@@ -10,7 +10,7 @@
 <link href="data_summary_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.553">
 
-  <title>Data Summary</title>
+  <title>Lee et al.&nbsp;(2023)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -330,7 +330,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Data Summary</h1>
+  <h1 class="title">Lee et al.&nbsp;(2023)</h1>
 
 <div class="quarto-title-authors">
 </div>
@@ -358,28 +358,42 @@
 <li><p>Metagenomic assemblies retrieved from <a href="http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html">Pasolli et al.</a></p></li>
 </ul>
 </section>
-<section id="sample-distribution-by-body-site" class="slide level2 smaller">
-<h2>Sample Distribution by Body Site</h2>
-<p>The dataset comprises samples from six major body sites, with the distribution as follows:</p>
-
-<img data-src="data_summary_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
-<section id="sample-distribution-by-country" class="slide level2 smaller">
-<h2>Sample Distribution by Country</h2>
-<p>The study collected samples from individuals across multiple countries.</p>
-
-<img data-src="data_summary_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="original-data-sample-distribution" class="slide level2 smaller">
+<h2>Original Data Sample Distribution</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="data_summary_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="data_summary_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="data-subsetting" class="slide level2 smaller">
 <h2>Data Subsetting</h2>
-<h4 id="subset-criteria"><strong>Subset Criteria:</strong></h4>
+<p>The data has been carefully subsetted to include samples that meet specific criteria, such as:</p>
 <ul>
 <li><p><strong>SCGs:</strong> Selected samples with all <strong>40 Single-Copy Genes (SCGs)</strong> recovered (<code>Tier_2.Recover_all_40_SCGs</code>).</p></li>
 <li><p><strong>Body Site:</strong> Limited to <strong>stool samples</strong> (<code>BodySite</code>).</p></li>
 <li><p><strong>Age Category:</strong> Included only <strong>adult subjects</strong> (<code>AgeCategory</code>).</p></li>
 <li><p><strong>Health Status:</strong> Focused on <strong>healthy individuals</strong> not currently using antibiotics (<code>Disease</code> and <code>antibiotic_current_use_binary</code>).</p></li>
 </ul>
+<p>This subset of the data, now represented as a <code>TreeSummarizedExperiment</code> (TSE) object, is optimized for further analysis and is available for advanced exploration of the antibiotic resistance gene (ARG) load, diversity, and related metadata.<br>
+To explore the metadata and access the object, visit <a href="https://github.com/microbiome/data/blob/main/Lee2023/README.md">this link</a>.</p>
 </section>
 <section id="sample-metadata" class="slide level2">
 <h2>Sample Metadata</h2>
+<p>The subsetted dataset contains key metadata that provides context to each sample.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -485,7 +499,7 @@ Summary of Features
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left; padding: 0;"><sup></sup> This table summarizes sample metadata, including levels for categorical features and statistical summaries for numeric features.</td>
+<td style="text-align: left; padding: 0;"><sup></sup> This table summarizes sample metadata, including levels for and statistical summaries</td>
 <td style="text-align: left;"></td>
 </tr>
 </tfoot>
