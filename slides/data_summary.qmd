@@ -10,21 +10,37 @@ format:
     transition: slide
 ---
 
-## Data Source  {.smaller}
+## Data Source {.smaller}
 
 ![](images/Capture.PNG)
 
-The data used comes from the study titled "Population-level impacts of antibiotic usage on the human gut microbiome", published in Nature Communications in 2023 by Lee et al. This large-scale study includes a total of 9,251 samples collected from various human body sites and countries.
+This large-scale study includes a total of 9,251 samples collected from various human body sites and countries.
 
-## Aims of the study  {.smaller}
+## Aims of the study {.smaller}
 
-The study investigates how antibiotic consumption affects the abundance and diversity of antibiotic resistance genes (ARGs) in the human gut microbiome across different populations.
+-   This study explores how antibiotic use affects the abundance and diversity of resistance genes (ARGs) in the human gut.
 
-By analyzing 8,972 metagenomic samples from healthy individuals who were not taking antibiotics, correlations between per capita antibiotic usage rates and the prevalence of ARGs in different countries was identified.
+-   Analyzing samples from healthy individuals, it finds links between national antibiotic usage and ARG prevalence, while also examining ARG transfer and resistotype patterns in the gut.
 
-The study also explores the how resistance genes are transferred among microbial species, identifies distinct resistotypes within the human gut microbiome, and assesses how these factors contribute to the overall resistome.
+## Methods: Data Collection & Compilation {.smaller}
 
-## Sample Distribution by Body Site  {.smaller}
+-   Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download
+
+-   Metagenomic assemblies retrieved from the paper ["Extensive unexplored human microbiome diversity revealed by over 150,000 genomes from metagenomes spanning age, geography, and lifestyle"](https://www.cell.com/cell/fulltext/S0092-8674(19)30001-7)
+
+```{=html}
+<!-- -->
+```
+-   6104 adult gut metagenome samples from 20 countries after refinning
+
+-   curatedMetagenomeData R package for retrieving the sample metadata
+
+```{=html}
+<!-- -->
+```
+-   Manually curated ARG families from CARD database (n=752)   
+
+## Sample Distribution by Body Site {.smaller}
 
 The dataset comprises samples from six major body sites, with the distribution as follows:
 
@@ -74,8 +90,6 @@ ggplot(body_site_data, aes(x = Number_of_Samples, y = Body_Site)) +
 
 ## Sample Distribution by Country {.smaller}
 
-The study collected samples from individuals across multiple countries.
-
 ```{r}
 library(ggplot2)
 library(dplyr)
@@ -122,20 +136,125 @@ ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
     plot.margin = margin(10, 10, 10, 10)
   ) +
   coord_cartesian(clip = "off")
+
 ```
 
-## Methods: Data Collection & Compilation  {.smaller}
+## Data Subsetting {.smaller}
 
--   Manually curated ARG families from CARD database (n=752)   
+The data has been carefully subsetted to include samples that meet specific criteria, such as:
 
--   6104 adult gut metagenome samples from 20 countries after refinning
+-   **Body Site:** Limited to **stool samples**.
 
--   curatedMetagenomeData R package for retrieving the sample metadata
+-   **Health Status:** Focused on **healthy individuals** not currently using antibiotics.
 
--   Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download
+-   **Age Category:** Included only **adult subjects**.
 
--   Metagenomic assemblies retrieved from [Pasolli et al.](http://segatalab.cibio.unitn.it/data/Pasolli_et_al.html)
+```{=html}
+<!-- -->
+```
+-   **SCGs:** Selected samples with all **40 Single-Copy Genes (SCGs)** recovered .
+
+This subset of the data, now represented as a `TreeSummarizedExperiment` (TSE) object, is optimized for further analysis and is available for advanced exploration of the antibiotic resistance gene (ARG) load, diversity, and related metadata.\
+To explore the metadata and access the object, visit [this link](https://github.com/microbiome/data/blob/main/Lee2023/README.md).
+
+## Sample Metadata {.smaller}
+
+The subsetted dataset contains key metadata that provides context to each sample.
+
+```{r}
+
+# Load the necessary library
+library(kableExtra)
+
+# Numeric summary dataframe (from your provided data)
+numeric_summary_df <- data.frame(
+  Feature = c("NumReads", "NumBases", "MedianReadLength", "AgeYears", "BMI", "InfantAge"),
+  Summary = c(
+    "Mean: 53841103, Median: 46307042, Min: 2294514, Max: 356009214",
+    "Mean: 5268656695, Median: 4729928293, Min: 285954703, Max: 41957745000",
+    "Mean: 102, Median: 100, Min: 68, Max: 151",
+    "Mean: 46, Median: 45, Min: 12, Max: 91",
+    "Mean: 25, Median: 24, Min: 15, Max: 47",
+    "Mean: 1, Median: 1, Min: 1, Max: 1"
+  )
+)
+
+# Categorical summary dataframe (your existing categorical metadata)
+categorical_summary_df <- data.frame(
+  Feature = c("Tier_1.Exclusion_before_analysis", "Tier_2.Recover_all_40_SCGs", 
+              "Tier_3.Adult_stool_from_well_sampled_countries", 
+              "Tier_4.Adult_stool_from_healthy_subjects_not_currently_on_antibiotic",
+              "BodySite", "BodySubsite", "AgeCategory", "Westernized", 
+              "Country", "Gender", "Disease", "antibiotic_exposure_status_descriptive", 
+              "antibiotic_current_use_binary"),
+  Summary = c("Not_excluded", "Yes", "Yes", "No, Yes", 
+              "Stool", "NA, stool, rectal_swab", 
+              "Adult, School age, Senior", "Yes, No", 
+              "ITA, SWE, FJI, MDG, CHN, DEU, KAZ, BGD, AUT, USA, CAN, FRA, DNK, ESP, NLD, MNG, PER, TZA, GBR, ISR", 
+              "F, NA, M", 
+              "Healthy, NA, RA, Cholera, CRC, Metabolic disorder, Colorectal adenoma, IBD, etc.",
+              "NA, no exposure in 6 months, no exposure at least currently, etc.", 
+              "NA, no, yes")
+)
+
+# Combine both numeric and categorical summaries
+combined_summary_df <- rbind(categorical_summary_df, numeric_summary_df)
+
+# Create the combined table using kableExtra
+combined_summary_df %>%
+  kbl(col.names = c("Feature", "Summary")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), 
+                full_width = F, font_size = 20) %>%
+  column_spec(1, bold = TRUE) %>%
+  row_spec(0, bold = TRUE) %>%
+  add_header_above(c(" " = 1, "Summary of Features" = 1))
+
+```
+
+## Distribution of Sample Metadata {.smaller}
+
+![](images/age_category.png)
+
+![](images/age_years.png)
+
+![](images/gender.png)
 
 ![](images/Disease.png)
 
-![](images/AgeCategory.png)
+![](images/ab_current_bi.png)
+
+![](images/ab_exposure.png)
+
+![](images/body_subsite.png)
+
+![](images/BMI.png)
+
+![](images/NumReads.png)
+
+![](images/numBases.png)
+
+![](images/median_read_length.png)
+
+## Taxanomic Diversity {.smaller}
+
+![](images/kingdom.png)
+
+## Pathogen Analysis {.smaller}
+
+![](images/human_pathogen.png)
+
+## **National Database of Antibiotic Resistant Organisms** {.smaller}
+
+National Database of Antibiotic Resistant Organisms **(**NDARO) is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.
+
+NDARO allows:
+
+-   [Browse a curated database of AMR genes](https://www.ncbi.nlm.nih.gov/pathogens/isolates#refgene/)
+
+-   Identify AMR genes in bacterial genomes with [AMRFinder](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/)
+
+-   Identify bacterial genomes with AMR genes in the [Isolate Browser](https://www.ncbi.nlm.nih.gov/pathogens/isolates#/search/)
+
+-   [Submit sequence and phenotype data related to AMR](https://www.ncbi.nlm.nih.gov/pathogens/submit)
+
+Link to NDARO: <https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/>

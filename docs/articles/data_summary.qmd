@@ -248,3 +248,4 @@ NDARO allows:
 -   [Submit sequence and phenotype data related to AMR](https://www.ncbi.nlm.nih.gov/pathogens/submit)
 
 Link to NDARO: <https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/>
+

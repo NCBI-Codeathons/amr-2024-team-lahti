@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -205,8 +205,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="load-and-explore-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-and-explore-data">Load and explore data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tse <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">'../data/Lee2023.rds'</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"Lee2023"</span>, <span class="at">package =</span> <span class="st">"teamlahti"</span> )</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tse <span class="ot">&lt;-</span> Lee2023</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>tse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>class: TreeSummarizedExperiment 
 dim: 4182 5195 
@@ -236,10 +237,10 @@ colTree: NULL</code></pre>
 <li><p><strong>Assays</strong>: A two-dimensional matrix with abundance data. Columns represent samples and row represents features (microbial taxa, in this case).</p></li>
 <li><p><strong>rowData</strong>: This is data about the features present in rows of assays. In this case we have taxonomic classification of our microbial taxa.</p></li>
 <li><p><strong>colData</strong>: This is data about the samples</p></li>
-<li><p><strong>Alternative experiments (altExp)</strong>: Any alternative counts table or experiments are stored in this slot. In our case we have added another TSE object with abudance of antibiotic resistance genes in our samples. In our case there are two alternative experiments namely, ‘<em>read</em>’ and ‘<em>assembly</em>’. We will be focussing on ‘<em>read</em>’ based experiment.</p></li>
+<li><p><strong>Alternative experiments (altExp)</strong>: Any alternative counts table or experiments are stored in this slot. In our case we have added another TSE object with abundance of antibiotic resistance genes in our samples. In our case there are two alternative experiments namely, ‘<em>read</em>’ and ‘<em>assembly</em>’. We will be focusing on ‘<em>read</em>’ based experiment.</p></li>
 </ul>
 <p><strong>Note</strong>: Read more about data containers on our book, <a href="https://microbiome.github.io/OMA/"><strong>Orchestrating Microbiome Analysis with Bioconductor</strong></a> (<a href="https://microbiome.github.io/OMA/docs/devel/#ref-OMA">Lahti et al.&nbsp;2021</a>).</p>
-<p>In this tutorial we will be focussing on analysing the AMR data, present in altExp container.</p>
+<p>In this tutorial we will be focusing on analysing the AMR data, present in altExp container.</p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">altExp</span>(tse, <span class="st">'read'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -381,7 +382,7 @@ introduced infinite values.</code></pre>
 </div>
 </div>
 <p>This plot gives an idea about the abundances of some AMRs like tetQ are more in westernized population.</p>
-<p>Lets agglomerate data based on anitbiotic class present in rowData and see the same plots at antibiotics class level:</p>
+<p>Lets agglomerate data based on antibiotic class present in rowData and see the same plots at antibiotics class level:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agglomerate</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">altExp</span>(tse, <span class="st">'read_abclass'</span>) <span class="ot">&lt;-</span> <span class="fu">agglomerateByVariable</span>(</span>
