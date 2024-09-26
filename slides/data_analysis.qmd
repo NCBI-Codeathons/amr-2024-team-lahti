@@ -1,0 +1,230 @@
+---
+title: "Data overview"
+format: 
+  html:
+    toc: true
+editor: visual
+---
+
+## Welcome
+
+::: {style="text-align: justify"}
+This tutorial is developed as a part developed for NCBI codeathon (see [details](https://www.nlm.nih.gov/ncbi/workshops/2024-09_AMR-Codeathon/codeathon-details.html)) a hackathon-style event focused on rapid innovation. While we encourage you to explore and adapt this code, please be aware that NCBI does not provide ongoing support for it. For general questions about NCBI software and tools, please visit: [NCBI Contact Page](https://www.ncbi.nlm.nih.gov/home/about/contact/).
+
+The tutorial provides the framework developed by integrating R/Bioconductor packages to analyse Antimicrobial Resistance Gene (ARG) data derived from metagenome sequence data. For the purpose of this tutorial, we are using [Lee et al. (2023)](https://github.com/microbiome/data/tree/main/Lee2023) dataset for analysis in R/Bioc. See [data summary](https://ncbi-codeathons.github.io/amr-2024-team-lahti/articles/data_summary.html). The data is pre-formated into TreeSummarizedExperiment object which can be downloaded as R object (.rds) file from [here](https://github.com/microbiome/data/blob/main/Lee2023/Lee2023.rds).
+
+**Note**: If you are interested know about TreeSummarizedExperiments
+:::
+
+## Install and load required packages
+
+```{r message=FALSE, warning=FALSE}
+packages <- c('mia', 'miaViz', 'scater', 'ComplexHeatmap', 'pheatmap')
+
+# Get packages that are already installed installed
+packages_already_installed <- packages[ packages %in% installed.packages() ]
+
+# Get packages that need to be installed
+packages_need_to_install <- setdiff( packages, packages_already_installed )
+
+# Loads BiocManager into the session. Install it if it not already installed.
+if( !require("BiocManager") ){
+    install.packages("BiocManager")
+    library("BiocManager")
+}
+
+# If there are packages that need to be installed, installs them with BiocManager
+if( length(packages_need_to_install) > 0 ) {
+   install(packages_need_to_install, ask = FALSE)
+}
+
+# load packages
+lapply(packages, require, character.only = TRUE)
+```
+
+## Load and explore data
+
+```{r}
+tse <- readRDS('../data/Lee2023.rds')
+tse
+```
+
+::: {style="text-align: justify"}
+The data is of class TreeSummarizedExperiment (TSE) with following data containers:
+
+-   **Assays**: A two-dimensional matrix with abundance data. Columns represent samples and row represents features (microbial taxa, in this case).
+
+-   **rowData**: This is data about the features present in rows of assays. In this case we have taxonomic classification of our microbial taxa.
+
+-   **colData**: This is data about the samples
+
+-   **Alternative experiments (altExp)**: Any alternative counts table or experiments are stored in this slot. In our case we have added another TSE object with abudance of antibiotic resistance genes in our samples. In our case there are two alternative experiments namely, '*read*' and '*assembly*'. We will be focussing on '*read*' based experiment.
+
+**Note**: Read more about data containers on our book, [**Orchestrating Microbiome Analysis with Bioconductor**](https://microbiome.github.io/OMA/) ([Lahti et al. 2021](https://microbiome.github.io/OMA/docs/devel/#ref-OMA)).
+
+In this tutorial we will be focussing on analysing the AMR data, present in altExp container.
+:::
+
+```{r}
+altExp(tse, 'read')
+```
+
+As this is also an TSE object, it has the sample containers like assays, rowData, colData, etc which can be accessed by different functions.
+
+**Assay**: contains the abundances of AMR genes in samples
+
+```{r}
+head(assay(altExp(tse, 'read'))[,1:3])
+```
+
+**colData**: contains information about samples
+
+```{r}
+head(colData(altExp(tse, 'read')))
+```
+
+It does not have any colData so lets add colData from our original TSE object
+
+```{r}
+colData(altExp(tse, 'read')) <- colData(tse)
+head(colData(altExp(tse, 'read'))[,5:9])
+```
+
+**rowData**: contains information about AMRs (features in row of assay)
+
+```{r}
+head(rowData(altExp(tse, 'read')))
+```
+
+Lets try to make some plots and explore the quality of data.
+
+### Abundance
+
+First, lets transform the data into relative abundance
+
+```{r}
+altExp(tse, 'read') <- transformAssay(altExp(tse, 'read'),assay.type = 'abundances', method = 'relabundance')
+```
+
+Now, lets plot the jitter plot based on relative abundance data, similar to the one presented at ([Salosensaari et al. 2021](https://microbiome.github.io/OMA/docs/devel/pages/quality_control.html#ref-Salosensaari2021)) (Supplementary Fig.1), can be visualized as follows:
+
+```{r}
+plotAbundanceDensity(
+  altExp(tse, 'read'), layout = "jitter",
+  assay.type = "relabundance",
+  n = 20, point_size=1, point.shape=19,
+  point.alpha=0.1) +
+  scale_x_log10(label=scales::percent)
+```
+
+The relative abundance values for the top-10 AMR genes can be visualized as a density plot over a log-scaled axis, with “Westernized” variable indicated by colors:
+
+```{r}
+plotAbundanceDensity(
+  altExp(tse, 'read'), layout = "density",
+  assay.type = "relabundance",
+  n = 10, colour.by="Westernized",
+  point.alpha=1/10) +
+  scale_x_log10()
+```
+
+This plot gives an idea about the abundances of some AMRs like tetQ are more in westernized population.
+
+Lets agglomerate data based on anitbiotic class present in rowData and see the same plots at antibiotics class level:
+
+```{r}
+# Agglomerate
+altExp(tse, 'read_abclass') <- agglomerateByVariable(
+                                  x = altExp(tse, 'read'),
+                                  by='rows',
+                                  rowData(altExp(tse,'read'))$antibiotic_class
+                                  )
+# plot
+plotAbundanceDensity(
+  altExp(tse, 'read_abclass'), layout = "density",
+  assay.type = "relabundance",
+  n = 10, colour.by="Westernized",
+  point.alpha=1/10) +
+  scale_x_log10()
+```
+
+## Diversity and Similarity
+
+### Alpha diversity
+
+Alpha diversity can be estimated with [`addAlpha()`](https://rdrr.io/pkg/mia/man/addAlpha.html) wrapper function that interact with other packages implementing the calculation, such as `vegan` ([Oksanen et al. 2020](https://microbiome.github.io/OMA/docs/devel/pages/alpha_diversity.html#ref-R_vegan))
+
+These functions calculate the given indices, and add them to the `colData` slot of the `SummarizedExperiment` object with the given `name.`
+
+```{r}
+# calculate observed alpha diversity and add it to colData slot
+altExp(tse, 'read') <- addAlpha(
+  altExp(tse, 'read'), assay.type = "abundances", index = "shannon_diversity", name = "shannon_diversity",
+  detection = 10)
+
+# plot
+plotColData(
+    altExp(tse, 'read'),
+    "shannon_diversity",
+    "Disease",
+    colour_by = "Disease") +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+    labs(expression(Richness[Observed]))
+```
+
+### Unsupervised ordinations
+
+Unsupervised ordination methods analyze variation in the data without additional information on covariates or other supervision of the model. Among the different approaches, Multi-Dimensional Scaling (MDS) and non-metric MDS (NMDS) can be regarded as the standard. They are jointly referred to as PCoA.
+
+```{r}
+# Run PCoA on relabundance assay with Bray-Curtis distances
+altExp(tse, 'read') <- runMDS(
+    altExp(tse, 'read'),
+    FUN = vegan::vegdist,
+    method = "bray",
+    assay.type = "relabundance",
+    name = "MDS_bray")
+```
+
+Sample dissimilarity can be visualized on a lower-dimensional display (typically 2D) using the [`plotReducedDim()`](https://rdrr.io/pkg/scater/man/plotReducedDim.html) function from the `scater` package. This also provides tools to incorporate additional information encoded by color, shape, size and other aesthetics.
+
+```{r}
+# Create ggplot object
+p <- plotReducedDim(altExp(tse, 'read'), "MDS_bray", colour_by = "Disease")
+
+# Calculate explained variance
+e <- attr(reducedDim(altExp(tse, 'read'), "MDS_bray"), "eig")
+rel_eig <- e / sum(e[e > 0])
+
+# Add explained variance for each axis
+p <- p + labs(
+    x = paste("PCoA 1 (", round(100 * rel_eig[[1]], 1), "%", ")", sep = ""),
+    y = paste("PCoA 2 (", round(100 * rel_eig[[2]], 1), "%", ")", sep = "")
+    )
+
+p
+```
+
+A few combinations of beta diversity metrics and assay types are typically used. For instance, Bray-Curtis dissimilarity and Euclidean distance are often applied to the relative abundance and the clr assays, respectively. Besides **beta diversity metric** and **assay type**, the **PCoA algorithm** is also a variable that should be considered. For more informatition read [Unsupervised ordination](https://microbiome.github.io/OMA/docs/devel/pages/beta_diversity.html#sec-unsupervised-ordination).
+
+## Heatmaps
+
+```{r}
+# tranform assay with CLR
+altExp(tse, "read_abclass") <- transformAssay(altExp(tse, "read_abclass"), MARGIN = "samples", method = "clr", assay.type = "relabundance", pseudocount=TRUE)
+
+altExp(tse, "read_abclass") <- transformAssay(altExp(tse, "read_abclass"), MARGIN = "features", method = "standardize", assay.type = "clr", pseudocount=FALSE, name="clr_z")
+
+# store abudances into matrix
+mat <- assay(altExp(tse, "read_abclass"), "clr_z")
+
+# prepare column annotation data
+col_ann <- data.frame(
+  Westernized = colData(altExp(tse, 'read_abclass'))[colnames(mat),'Westernized'],
+  Gender = colData(altExp(tse, 'read_abclass'))[colnames(mat),'Gender'],
+  Disease = colData(altExp(tse, 'read_abclass'))[colnames(mat),'Disease']
+)
+rownames(col_ann) <- rownames(colData(altExp(tse, 'read_abclass'))[colnames(mat),])
+
+pheatmap(mat,annotation_col = col_ann,show_colnames = F)
+```

@@ -28,6 +28,8 @@ navbar:
          href: articles/addqmd.html
       -  text: Data summary
          href: articles/data_summary.html
+      -  text: Data analysis (Tutorial)
+         href: articles/data_analysis.html
       -  text: Presentation 9.24.24
          href: articles/standout_presentation.html
       -  text: Transcripts 9.24.24

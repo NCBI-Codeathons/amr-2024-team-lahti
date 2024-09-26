@@ -5,3 +5,4 @@ project:
     - data_summary.qmd
     - standout_presentation.qmd
     - standout_transcripts.qmd
+    - data_analysis.qmd

@@ -11,7 +11,7 @@ serve as tools to practice the teamlahti functionality."><!-- mathjax --><script
 
   gtag('config', 'UA-84499524-2');
 </script></head><body data-spy="scroll" data-target="#toc">
-    
+
 
     <div class="container template-reference-topic">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -33,15 +33,15 @@ serve as tools to practice the teamlahti functionality."><!-- mathjax --><script
       <ul class="nav navbar-nav"><li>
   <a href="../articles/index.html">
     <span class="fa fa-home"></span>
-     
+
   </a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fas fa-book"></span>
-     
+
     Articles
-     
+
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
@@ -54,6 +54,9 @@ serve as tools to practice the teamlahti functionality."><!-- mathjax --><script
       <a href="../articles/data_summary.html">Data summary</a>
     </li>
     <li>
+      <a href="../articles/data_analysis.html">Data analysis (Tutorial)</a>
+    </li>
+    <li>
       <a href="../articles/standout_presentation.html">Presentation 9.24.24</a>
     </li>
     <li>
@@ -63,28 +66,28 @@ serve as tools to practice the teamlahti functionality."><!-- mathjax --><script
 <li>
   <a href="../articles/index.html">
     <span class="fa fa-question-circle-o"></span>
-     
+
     faq
   </a>
 </li>
 <li>
   <a href="https://github.com/NCBI-Codeathons/amr-2024-team-lahti">
     <span class="fa fa-newspaper-o"></span>
-     
+
     news
   </a>
 </li>
 <li>
   <a href="../reference/index.html">
     <span class="fa fa-file-code-o"></span>
-     
+
     Methods
   </a>
 </li>
 <li>
   <a href="https://github.com/NCBI-Codeathons/amr-2024-team-lahti">
     <span class="fa fa-github fa-lg"></span>
-     
+
     github
   </a>
 </li>
@@ -92,7 +95,7 @@ serve as tools to practice the teamlahti functionality."><!-- mathjax --><script
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="col-md-9 contents">
@@ -119,32 +122,15 @@ serve as tools to practice the teamlahti functionality.</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Load dataset from teamlahti</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/NCBI-Codeathons/amr-2024-team-lahti">teamlahti</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"Lee2023"</span>, package <span class="op">=</span> <span class="st">"teamlahti"</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>data set ‘Lee2023’ not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># In this case, the dataset is a TreeSE, so it is renamed as tse</span></span></span>
 <span class="r-in"><span><span class="va">tse</span> <span class="op">&lt;-</span> <span class="va">Lee2023</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'Lee2023' not found</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Print summary</span></span></span>
 <span class="r-in"><span><span class="va">tse</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> class: TreeSummarizedExperiment </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> dim: 4182 5195 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> metadata(1): Country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> assays(1): relabundance</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> rownames(4182): 362 363 ... 23727 23733</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> rowData names(13): sgbid Kingdom ... assigned_pathogen_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   assigned_pathogen_taxid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> colnames(5195): AsnicarF_2017__MV_FEM1_t1Q14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   AsnicarF_2017__MV_FEM2_t1Q14 ... ZellerG_2014__CCMD74930188ST-21-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   ZellerG_2014__CCMD79987997ST-21-0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> colData names(22): Tier_1.Exclusion_before_analysis</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Tier_2.Recover_all_40_SCGs ... antibiotic_exposure_status_descriptive</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   antibiotic_current_use_binary</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> reducedDimNames(0):</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> mainExpName: NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> altExpNames(2): read assembly</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> rowLinks: NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> rowTree: NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> colLinks: NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> colTree: NULL</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'tse' not found</span>
 </code></pre></div>
     </div>
   </div>
@@ -159,15 +145,15 @@ serve as tools to practice the teamlahti functionality.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer></div>
 
-  
 
 
-  
+
+
 
   </body></html>
 
