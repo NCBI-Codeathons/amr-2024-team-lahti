@@ -1,0 +1,251 @@
+---
+title: Data Summary
+format: 
+  revealjs:
+    theme: white
+    font-family: "Times New Roman"
+    slideNumber: true
+    scrollable: true
+    
+    transition: slide
+---
+
+## Data Source {.smaller}
+
+![](images/Capture.PNG)
+
+This large-scale study includes a total of 9,251 samples collected from various human body sites and countries.
+
+## Aims of the study {.smaller}
+
+-   This study explores how antibiotic use affects the abundance and diversity of resistance genes (ARGs) in the human gut.
+
+-   Analyzing samples from healthy individuals, it finds links between national antibiotic usage and ARG prevalence, while also examining ARG transfer and resistotype patterns in the gut.
+
+## Methods: Data Collection & Compilation {.smaller}
+
+-   Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download
+
+-   Metagenomic assemblies retrieved from the paper ["Extensive unexplored human microbiome diversity revealed by over 150,000 genomes from metagenomes spanning age, geography, and lifestyle"](https://www.cell.com/cell/fulltext/S0092-8674(19)30001-7)
+
+```{=html}
+<!-- -->
+```
+-   6104 adult gut metagenome samples from 20 countries after refinning
+
+-   curatedMetagenomeData R package for retrieving the sample metadata
+
+```{=html}
+<!-- -->
+```
+-   Manually curated ARG families from CARD database (n=752)   
+
+## Sample Distribution by Body Site {.smaller}
+
+The dataset comprises samples from six major body sites, with the distribution as follows:
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(scales)
+library(RColorBrewer)
+
+body_site_data <- data.frame(
+  Body_Site = c("Gut", "Oral Cavity", "Skin", "Airway", "Nasal Cavity", "Vagina"),
+  Number_of_Samples = c(7589, 746, 380, 118, 55, 83)
+)
+
+body_site_data <- body_site_data %>%
+  arrange(desc(Number_of_Samples))
+
+body_site_data$Body_Site <- factor(body_site_data$Body_Site, 
+                                   levels = body_site_data$Body_Site)
+
+palette <- brewer.pal(n = 6, name = "Greens")
+
+ggplot(body_site_data, aes(x = Number_of_Samples, y = Body_Site)) +
+  geom_bar(stat = "identity", fill = palette[5]) +
+  geom_text(aes(label = comma(Number_of_Samples)), 
+            hjust = -0.1, 
+            size = 4, 
+            color = "black") +
+  scale_x_continuous(labels = comma, 
+                     expand = expansion(mult = c(0, 0.1))) +
+  labs(
+    title = "Sample Distribution by Body Site",
+    x = "Number of Samples",
+    y = "Body Site"
+  ) +
+  theme_minimal(base_size = 14, base_family = "Times New Roman") +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.margin = margin(10, 10, 10, 10)
+  ) +
+  coord_cartesian(clip = "off")
+```
+
+## Sample Distribution by Country {.smaller}
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(scales)
+library(ggtext)
+library(RColorBrewer)
+
+country_sample_data <- data.frame(
+  Country = c("Austria", "Canada", "China", "Denmark", "France", "Germany", "Israel", 
+              "Italy", "Kazakhstan", "Madagascar", "Netherlands", "Sweden", "USA", 
+              "Bangladesh", "Fiji", "United Kingdom", "Tanzania"),
+  Number_of_Samples = c(154, 328, 1342, 580, 157, 292, 956, 536, 172, 112, 526, 
+                        600, 1431, 47, 312, 344, 67)
+)
+
+country_sample_data <- country_sample_data %>%
+  arrange(desc(Number_of_Samples))
+
+country_sample_data$Country <- factor(country_sample_data$Country, 
+                                     levels = country_sample_data$Country)
+
+palette <- brewer.pal(n = 8, name = "Blues")
+
+ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
+  geom_bar(stat = "identity", fill = palette[6]) +
+  geom_text(aes(label = comma(Number_of_Samples)), 
+            hjust = -0.1, 
+            size = 4, 
+            color = "black") +
+  scale_x_continuous(labels = comma, 
+                     expand = expansion(mult = c(0, 0.1))) +
+  labs(
+    title = "Sample Distribution by Country",
+    x = "Number of Samples",
+    y = "Country"
+  ) +
+  theme_minimal(base_size = 14, base_family = "Times New Roman") +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.margin = margin(10, 10, 10, 10)
+  ) +
+  coord_cartesian(clip = "off")
+
+```
+
+## Data Subsetting {.smaller}
+
+The data has been carefully subsetted to include samples that meet specific criteria, such as:
+
+-   **Body Site:** Limited to **stool samples**.
+
+-   **Health Status:** Focused on **healthy individuals** not currently using antibiotics.
+
+-   **Age Category:** Included only **adult subjects**.
+
+```{=html}
+<!-- -->
+```
+-   **SCGs:** Selected samples with all **40 Single-Copy Genes (SCGs)** recovered .
+
+This subset of the data, now represented as a `TreeSummarizedExperiment` (TSE) object, is optimized for further analysis and is available for advanced exploration of the antibiotic resistance gene (ARG) load, diversity, and related metadata.\
+To explore the metadata and access the object, visit [this link](https://github.com/microbiome/data/blob/main/Lee2023/README.md).
+
+## Sample Metadata {.smaller}
+
+The subsetted dataset contains key metadata that provides context to each sample.
+
+```{r}
+
+# Load the necessary library
+library(kableExtra)
+
+# Numeric summary dataframe (from your provided data)
+numeric_summary_df <- data.frame(
+  Feature = c("NumReads", "NumBases", "MedianReadLength", "AgeYears", "BMI", "InfantAge"),
+  Summary = c(
+    "Mean: 53841103, Median: 46307042, Min: 2294514, Max: 356009214",
+    "Mean: 5268656695, Median: 4729928293, Min: 285954703, Max: 41957745000",
+    "Mean: 102, Median: 100, Min: 68, Max: 151",
+    "Mean: 46, Median: 45, Min: 12, Max: 91",
+    "Mean: 25, Median: 24, Min: 15, Max: 47",
+    "Mean: 1, Median: 1, Min: 1, Max: 1"
+  )
+)
+
+# Categorical summary dataframe (your existing categorical metadata)
+categorical_summary_df <- data.frame(
+  Feature = c("Tier_1.Exclusion_before_analysis", "Tier_2.Recover_all_40_SCGs", 
+              "Tier_3.Adult_stool_from_well_sampled_countries", 
+              "Tier_4.Adult_stool_from_healthy_subjects_not_currently_on_antibiotic",
+              "BodySite", "BodySubsite", "AgeCategory", "Westernized", 
+              "Country", "Gender", "Disease", "antibiotic_exposure_status_descriptive", 
+              "antibiotic_current_use_binary"),
+  Summary = c("Not_excluded", "Yes", "Yes", "No, Yes", 
+              "Stool", "NA, stool, rectal_swab", 
+              "Adult, School age, Senior", "Yes, No", 
+              "ITA, SWE, FJI, MDG, CHN, DEU, KAZ, BGD, AUT, USA, CAN, FRA, DNK, ESP, NLD, MNG, PER, TZA, GBR, ISR", 
+              "F, NA, M", 
+              "Healthy, NA, RA, Cholera, CRC, Metabolic disorder, Colorectal adenoma, IBD, etc.",
+              "NA, no exposure in 6 months, no exposure at least currently, etc.", 
+              "NA, no, yes")
+)
+
+# Combine both numeric and categorical summaries
+combined_summary_df <- rbind(categorical_summary_df, numeric_summary_df)
+
+# Create the combined table using kableExtra
+combined_summary_df %>%
+  kbl(col.names = c("Feature", "Summary")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"), 
+                full_width = F, font_size = 20) %>%
+  column_spec(1, bold = TRUE) %>%
+  row_spec(0, bold = TRUE) %>%
+  add_header_above(c(" " = 1, "Summary of Features" = 1))
+
+```
+
+## Distribution of Sample Metadata {.smaller}
+
+![](images/age_category.png)
+
+![](images/age_years.png)
+
+![](images/gender.png)
+
+![](images/Disease.png)
+
+![](images/ab_current_bi.png)
+
+![](images/ab_exposure.png)
+
+![](images/body_subsite.png)
+
+![](images/BMI.png)
+
+## Taxanomic Diversity {.smaller}
+
+![](images/kingdom.png)
+
+## **National Database of Antibiotic Resistant Organisms** {.smaller}
+
+National Database of Antibiotic Resistant Organisms **(**NDARO) is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.
+
+NDARO allows:
+
+-   [Browse a curated database of AMR genes](https://www.ncbi.nlm.nih.gov/pathogens/isolates#refgene/)
+
+-   Identify AMR genes in bacterial genomes with [AMRFinder](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/)
+
+-   Identify bacterial genomes with AMR genes in the [Isolate Browser](https://www.ncbi.nlm.nih.gov/pathogens/isolates#/search/)
+
+-   [Submit sequence and phenotype data related to AMR](https://www.ncbi.nlm.nih.gov/pathogens/submit)
+
+Link to NDARO: <https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/>
+
