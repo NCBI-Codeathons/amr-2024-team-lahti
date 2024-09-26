@@ -241,6 +241,8 @@ combined_summary_df %>%
 
 ## Pathogen Analysis {.smaller}
 
+![](images/human_pathogen.png)
+
 ## **National Database of Antibiotic Resistant Organisms** {.smaller}
 
 National Database of Antibiotic Resistant Organisms **(**NDARO) is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.
