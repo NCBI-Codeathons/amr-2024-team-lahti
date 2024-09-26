@@ -22,6 +22,8 @@ The data used comes from the study titled "Population-level impacts of antibioti
 
 -   Analyzing samples from healthy individuals, it finds links between national antibiotic usage and ARG prevalence, while also examining ARG transfer and resistotype patterns in the gut.
 
+## Sample Metadata  {.smaller}
+
 ## Sample Distribution by Body Site {.smaller}
 
 The dataset comprises samples from six major body sites, with the distribution as follows:
@@ -145,3 +147,38 @@ ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
 -   **Age Category:** Included only **adult subjects** (`AgeCategory`).
 
 -   **Health Status:** Focused on **healthy individuals** not currently using antibiotics (`Disease` and `antibiotic_current_use_binary`).
+
+## Sample Metadata
+
+```{r}
+library(kableExtra)
+library(dplyr)
+metadata_summary <- data.frame(
+  Feature = c("Tier_1.Exclusion_before_analysis", "Tier_2.Recover_all_40_SCGs", 
+              "Tier_3.Adult_stool_from_well_sampled_countries", 
+              "Tier_4.Adult_stool_from_healthy_subjects_not_currently_on_antibiotic",
+              "BodySite", "BodySubsite", "AgeCategory", "Westernized", 
+              "Country", "Gender", "Disease", "antibiotic_exposure_status_descriptive", 
+              "antibiotic_current_use_binary"),
+  Unique_Levels_or_Summary = c("Not_excluded", "Yes", "Yes", "No, Yes", 
+                               "Stool", "NA, stool, rectal_swab", 
+                               "Adult, School age, Senior", "Yes, No", 
+                               "ITA, SWE, FJI, MDG, CHN, DEU, KAZ, BGD, AUT, USA, CAN, FRA, DNK, ESP, NLD, MNG, PER, TZA, GBR, ISR", 
+                               "F, NA, M", 
+                               "Healthy, NA, RA, Cholera, CRC, Metabolic disorder, Colorectal adenoma, IBD, etc.",
+                               "NA, no exposure in 6 months, no exposure at least currently, etc.", 
+                               "NA, no, yes")
+)
+
+metadata_summary %>%
+  kbl(caption = "Metadata Summary", 
+      col.names = c("Feature", "Level")) %>%
+  kable_classic(full_width = FALSE, 
+                font_size = 20) %>%
+  column_spec(1, bold = TRUE) %>%  
+  kable_styling(latex_options = c("striped", "hold_position"), 
+                position = "center", 
+                full_width = FALSE) %>%
+  footnote(general = "This table summarizes the categorical metadata features and their levels.")
+
+```

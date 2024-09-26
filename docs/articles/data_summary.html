@@ -320,6 +320,10 @@
       margin-right: 0; 
     }
   </style>
+  <script src="data_summary_files/libs/kePrint-0.0.1/kePrint.js"></script>
+
+  <link href="data_summary_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -343,6 +347,9 @@
 <li><p>This study explores how antibiotic use affects the abundance and diversity of resistance genes (ARGs) in the human gut.</p></li>
 <li><p>Analyzing samples from healthy individuals, it finds links between national antibiotic usage and ARG prevalence, while also examining ARG transfer and resistotype patterns in the gut.</p></li>
 </ul>
+</section>
+<section id="sample-metadata" class="slide level2 smaller">
+<h2>Sample Metadata</h2>
 </section>
 <section id="sample-distribution-by-body-site" class="slide level2 smaller">
 <h2>Sample Distribution by Body Site</h2>
@@ -373,6 +380,90 @@
 <li><p><strong>Age Category:</strong> Included only <strong>adult subjects</strong> (<code>AgeCategory</code>).</p></li>
 <li><p><strong>Health Status:</strong> Focused on <strong>healthy individuals</strong> not currently using antibiotics (<code>Disease</code> and <code>antibiotic_current_use_binary</code>).</p></li>
 </ul>
+</section>
+<section id="sample-metadata-1" class="slide level2">
+<h2>Sample Metadata</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<table class="lightable-classic table" data-quarto-postprocess="true" style="font-size: 20px; font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; margin-left: auto; margin-right: auto; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption>Metadata Summary</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Feature</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Tier_1.Exclusion_before_analysis</td>
+<td style="text-align: left;">Not_excluded</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">Tier_2.Recover_all_40_SCGs</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Tier_3.Adult_stool_from_well_sampled_countries</td>
+<td style="text-align: left;">Yes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">Tier_4.Adult_stool_from_healthy_subjects_not_currently_on_antibiotic</td>
+<td style="text-align: left;">No, Yes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">BodySite</td>
+<td style="text-align: left;">Stool</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">BodySubsite</td>
+<td style="text-align: left;">NA, stool, rectal_swab</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">AgeCategory</td>
+<td style="text-align: left;">Adult, School age, Senior</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">Westernized</td>
+<td style="text-align: left;">Yes, No</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Country</td>
+<td style="text-align: left;">ITA, SWE, FJI, MDG, CHN, DEU, KAZ, BGD, AUT, USA, CAN, FRA, DNK, ESP, NLD, MNG, PER, TZA, GBR, ISR</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">Gender</td>
+<td style="text-align: left;">F, NA, M</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">Disease</td>
+<td style="text-align: left;">Healthy, NA, RA, Cholera, CRC, Metabolic disorder, Colorectal adenoma, IBD, etc.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">antibiotic_exposure_status_descriptive</td>
+<td style="text-align: left;">NA, no exposure in 6 months, no exposure at least currently, etc.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">antibiotic_current_use_binary</td>
+<td style="text-align: left;">NA, no, yes</td>
+</tr>
+</tbody><tfoot>
+<tr class="even">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Note: </span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><sup></sup> This table summarizes the categorical metadata features and their levels.</td>
+<td style="text-align: left;"></td>
+</tr>
+</tfoot>
+
+</table>
+
+
+</div>
+</div>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
