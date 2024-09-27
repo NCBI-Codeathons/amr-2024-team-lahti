@@ -18,7 +18,7 @@ The tutorial provides the framework developed by integrating R/Bioconductor pack
 
 ## Install and load required packages
 
-```{r message=FALSE, warning=FALSE install-package}
+```{r message=FALSE, warning=FALSE, install-package}
 packages <- c('mia', 'miaViz', 'scater', 'ComplexHeatmap', 'pheatmap', 'dplyr')
 
 # Get packages that are already installed installed
