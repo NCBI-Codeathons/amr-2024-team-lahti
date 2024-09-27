@@ -22,6 +22,8 @@ navbar:
     - text: "Articles"
       icon: fas fa-book
       menu:
+      -  text: Presentation 9.27.24
+         href: articles/draft.html
       -  text: Installation
          href: https://github.com/NCBI-Codeathons/amr-2024-team-lahti
       -  text: Add an article
@@ -34,7 +36,6 @@ navbar:
          href: articles/standout_presentation.html
       -  text: Transcripts 9.24.24
          href: articles/standout_transcripts.html
-      -  href: slides/draft.html
     - text: "faq"
       icon: fa-question-circle-o
       href: articles/index.html
