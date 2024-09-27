@@ -220,10 +220,6 @@ combined_summary_df %>%
 
 ![](images/BMI.png)
 
-## Taxanomic Diversity {.smaller}
-
-![](images/kingdom.png)
-
 ## **National Database of Antibiotic Resistant Organisms** {.smaller}
 
 National Database of Antibiotic Resistant Organisms **(**NDARO) is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.
@@ -239,3 +235,30 @@ NDARO allows:
 -   [Submit sequence and phenotype data related to AMR](https://www.ncbi.nlm.nih.gov/pathogens/submit)
 
 Link to NDARO: <https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/>
+
+## Meet the Team {.smaller}
+
+::: columns
+::: {.column width="50%"}
+
+**Leo Lahti** (Team Lead)
+
+**Muluh Geraldson** (Tech Lead)
+
+**Akewak Jeba** (Tech Lead)
+
+**Nitin Bayal** (Writer)
+
+**Dattaray Mongad** (Writer)
+
+**Shivang Bhanushali** (Flex)
+
+**Mahkameh Salehi** (Flex)
+:::
+
+::: {.column width="50%"}
+![](images/UTU_logo_RGB_EN.jpg){width="296"}
+
+![](images/Research Council of Finland logo.jpg.jpeg){width="315"}
+:::
+:::
