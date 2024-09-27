@@ -8,13 +8,220 @@ format:
     theme: white
     slideNumber: true
     transition: slide
+    controls: true
 ---
 
 ## Team home page
 
 ![](images/Team_homepage.png)
 
-## Data analysis
+## Data Source {.smaller}
+
+![](images/Capture.PNG)
+
+This large-scale study includes a total of 9,251 samples collected from various human body sites and countries.
+
+-   Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download
+
+-   Metagenomic assemblies retrieved from the paper ["Extensive unexplored human microbiome diversity revealed by over 150,000 genomes from metagenomes spanning age, geography, and lifestyle"](https://www.cell.com/cell/fulltext/S0092-8674(19)30001-7)
+
+<!-- -->
+
+-   6104 adult gut metagenome samples from 20 countries after refinning
+
+-   curatedMetagenomeData R package for retrieving the sample metadata
+
+<!-- -->
+
+-   Manually curated ARG families from CARD database (n=752)   
+
+## Sample Distribution by Body Site {.smaller}
+
+The dataset comprises samples from six major body sites, with the distribution as follows:
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(scales)
+library(RColorBrewer)
+
+body_site_data <- data.frame(
+  Body_Site = c("Gut", "Oral Cavity", "Skin", "Airway", "Nasal Cavity", "Vagina"),
+  Number_of_Samples = c(7589, 746, 380, 118, 55, 83)
+)
+
+body_site_data <- body_site_data %>%
+  arrange(desc(Number_of_Samples))
+
+body_site_data$Body_Site <- factor(body_site_data$Body_Site, 
+                                   levels = body_site_data$Body_Site)
+
+palette <- brewer.pal(n = 6, name = "Greens")
+
+ggplot(body_site_data, aes(x = Number_of_Samples, y = Body_Site)) +
+  geom_bar(stat = "identity", fill = palette[5]) +
+  geom_text(aes(label = comma(Number_of_Samples)), 
+            hjust = -0.1, 
+            size = 4, 
+            color = "black") +
+  scale_x_continuous(labels = comma, 
+                     expand = expansion(mult = c(0, 0.1))) +
+  labs(
+    title = "Sample Distribution by Body Site",
+    x = "Number of Samples",
+    y = "Body Site"
+  ) +
+  theme_minimal(base_size = 14, base_family = "Times New Roman") +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.margin = margin(10, 10, 10, 10)
+  ) +
+  coord_cartesian(clip = "off")
+```
+
+## Sample Distribution by Country {.smaller}
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(scales)
+library(ggtext)
+library(RColorBrewer)
+
+country_sample_data <- data.frame(
+  Country = c("Austria", "Canada", "China", "Denmark", "France", "Germany", "Israel", 
+              "Italy", "Kazakhstan", "Madagascar", "Netherlands", "Sweden", "USA", 
+              "Bangladesh", "Fiji", "United Kingdom", "Tanzania"),
+  Number_of_Samples = c(154, 328, 1342, 580, 157, 292, 956, 536, 172, 112, 526, 
+                        600, 1431, 47, 312, 344, 67)
+)
+
+country_sample_data <- country_sample_data %>%
+  arrange(desc(Number_of_Samples))
+
+country_sample_data$Country <- factor(country_sample_data$Country, 
+                                     levels = country_sample_data$Country)
+
+palette <- brewer.pal(n = 8, name = "Blues")
+
+ggplot(country_sample_data, aes(x = Number_of_Samples, y = Country)) +
+  geom_bar(stat = "identity", fill = palette[6]) +
+  geom_text(aes(label = comma(Number_of_Samples)), 
+            hjust = -0.1, 
+            size = 4, 
+            color = "black") +
+  scale_x_continuous(labels = comma, 
+                     expand = expansion(mult = c(0, 0.1))) +
+  labs(
+    title = "Sample Distribution by Country",
+    x = "Number of Samples",
+    y = "Country"
+  ) +
+  theme_minimal(base_size = 14, base_family = "Times New Roman") +
+  theme(
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(color = "black"),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.margin = margin(10, 10, 10, 10)
+  ) +
+  coord_cartesian(clip = "off")
+
+```
+
+## Data overview in R
+
+[TreeSummarizedExperiment](https://www.bioconductor.org/packages/release/bioc/html/TreeSummarizedExperiment.html)
+
+::: columns
+::: {.column width="50%"}
+``` {.R style="font-size: 30px"}
+class: TreeSummarizedExperiment 
+dim: 4182 5195 
+metadata(1): Country
+assays(1): relabundance
+rownames(4182): 362 363 ... 23727 23733
+rowData names(13): sgbid sgbname ... assigned_pathogen_name
+  assigned_pathogen_taxid
+colnames(5195): AsnicarF_2017__MV_FEM1_t1Q14
+  AsnicarF_2017__MV_FEM2_t1Q14 ... ZellerG_2014__CCMD74930188ST-21-0
+  ZellerG_2014__CCMD79987997ST-21-0
+colData names(22): Tier_1.Exclusion_before_analysis
+  Tier_2.Recover_all_40_SCGs ... antibiotic_exposure_status_descriptive
+  antibiotic_current_use_binary
+reducedDimNames(0):
+mainExpName: NULL
+altExpNames(2): read assembly
+rowLinks: NULL
+rowTree: NULL
+colLinks: NULL
+colTree: NULL
+```
+:::
+
+::: {.column width="50%" style="font-size: 30px"}
+Packages used for analysis:
+
+-   'mia'
+
+-   'miaViz'
+
+-   'scater'
+
+-   'ComplexHeatmap'
+
+-   'pheatmap'
+
+-   'dplyr'
+:::
+:::
+
+## Abundance of resistance genes
+
+::: columns
+::: {.column width="50%"}
+Overview of AMR genes
+
+![](images/relabundance_amr.png)
+:::
+
+::: {.column width="50%"}
+AMR class westernised population
+
+![](images/amr_density.png)
+:::
+:::
+
+## **Diversity and Similarity**
+
+Alpha diversity of AMR genes in different diseases
+
+![](images/alpha_div.png)
+
+## Antibiotic Susceptibility (NDARO)
+
+::: {style="font-size:25px"}
+We analysed the samples from Clostridioides Difficile Infection (CDI) samples and found *Pseudomonas aeruginosa* was highly prevalent.
+:::
+
+::: columns
+::: {.column width="50%" style="font-size:25px"}
+Isolation types present in AST data
+
+![](images/ast.png)
+:::
+
+::: {.column width="50%" style="font-size:25px"}
+Top-5 antibiotics (with present evidence in AST)
+
+![](images/ast_final.png)
+:::
+:::
 
 ## Team Members
 
