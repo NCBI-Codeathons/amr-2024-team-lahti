@@ -344,23 +344,23 @@
 <section id="aims-of-the-study" class="slide level2 smaller">
 <h2>Aims of the study</h2>
 <ul>
-<li><p>This study explores how antibiotic use affects the abundance and diversity of resistance genes (ARGs) in the human gut.</p></li>
-<li><p>Analyzing samples from healthy individuals, it finds links between national antibiotic usage and ARG prevalence, while also examining ARG transfer and resistotype patterns in the gut.</p></li>
+<li><p>This study explores how <strong>antibiotic use</strong> affects the <strong>abundance</strong> and <strong>diversity</strong> of <em>resistance genes (ARGs)</em> in the human gut.</p></li>
+<li><p>Analyzing samples from <strong>healthy individuals</strong>, it finds links between <strong>national antibiotic usage</strong> and <strong>ARG prevalence</strong>, while also examining <strong>ARG transfer</strong> and <strong>resistotype patterns</strong> in the gut.</p></li>
 </ul>
 </section>
 <section id="methods-data-collection-compilation" class="slide level2 smaller">
 <h2>Methods: Data Collection &amp; Compilation</h2>
 <ul>
-<li><p>Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download</p></li>
-<li><p>Metagenomic assemblies retrieved from the paper “Extensive unexplored human microbiome diversity revealed by over 150,000 genomes from metagenomes spanning age, geography, and lifestyle” (<a href="https://www.cell.com/cell/fulltext/S0092-8674(19)30001-7"><em>Pasoli et al., 2019</em></a>)</p></li>
-<li><p>6104 adult gut metagenome samples from 20 countries after refinning</p></li>
-<li><p>curatedMetagenomeData R package for retrieving the sample metadata</p></li>
-<li><p>Manually curated ARG families from CARD database (n=752)&nbsp; &nbsp;</p></li>
+<li><p><strong>Raw Illumina sequencing reads</strong> from NCBI or EMBL using <em>Kingfisher-download</em></p></li>
+<li><p><strong>Metagenomic assemblies</strong> retrieved from the paper “<em>Extensive unexplored human microbiome diversity revealed by over 150,000 genomes from metagenomes spanning age, geography, and lifestyle</em>” (<a href="https://www.cell.com/cell/fulltext/S0092-8674(19)30001-7"><em>Pasoli et al., 2019</em></a>)</p></li>
+<li><p><strong>6104 adult gut metagenome samples</strong> from <strong>20 countries</strong> after refinning</p></li>
+<li><p><strong>curatedMetagenomeData</strong> R package for retrieving the sample metadata</p></li>
+<li><p><strong>Manually curated ARG families</strong> from <strong>CARD database</strong> (<em>n=752</em>)&nbsp; &nbsp;</p></li>
 </ul>
 </section>
 <section id="sample-distribution-by-body-site" class="slide level2 smaller">
 <h2>Sample Distribution by Body Site</h2>
-<p>The dataset comprises samples from six major body sites, with the distribution as follows:</p>
+<p>The dataset comprises samples from <strong>six major body sites</strong>, with the distribution as follows:</p>
 
 <img data-src="data_summary_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
 <section id="sample-distribution-by-country" class="slide level2 smaller">
@@ -374,12 +374,9 @@
 <li><p><strong>Body Site:</strong> Limited to <strong>stool samples</strong>.</p></li>
 <li><p><strong>Health Status:</strong> Focused on <strong>healthy individuals</strong> not currently using antibiotics.</p></li>
 <li><p><strong>Age Category:</strong> Included only <strong>adult subjects</strong>.</p></li>
+<li><p><strong>SCGs:</strong> Selected samples with all <strong>40 Single-Copy Genes (SCGs)</strong> recovered .</p></li>
 </ul>
-<!-- -->
-<ul>
-<li><strong>SCGs:</strong> Selected samples with all <strong>40 Single-Copy Genes (SCGs)</strong> recovered .</li>
-</ul>
-<p>This subset of the data, now represented as a <code>TreeSummarizedExperiment</code> (TSE) object, is optimized for further analysis and is available for advanced exploration of the antibiotic resistance gene (ARG) load, diversity, and related metadata.<br>
+<p>This subset of the data, now represented as a <code>TreeSummarizedExperiment</code> <em>(TSE)</em> object, is optimized for further analysis and is available for advanced exploration of the <strong>ARG load</strong>, diversity, and related metadata.<br>
 To explore the metadata and access the object, visit <a href="https://github.com/microbiome/data/blob/main/Lee2023/README.md">this link</a>.</p>
 </section>
 <section id="sample-metadata" class="slide level2 smaller">
@@ -502,15 +499,15 @@ Summary of Features
 </section>
 <section id="national-database-of-antibiotic-resistant-organisms" class="slide level2 smaller">
 <h2><strong>National Database of Antibiotic Resistant Organisms</strong></h2>
-<p>National Database of Antibiotic Resistant Organisms <strong>(</strong>NDARO) is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.</p>
+<p><strong>National Database of Antibiotic Resistant Organisms (NDARO)</strong> is a collaborative, cross-agency, centralized hub for researchers to access <strong>AMR data</strong> to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.</p>
 <p>NDARO allows:</p>
 <ul>
-<li><p><a href="https://www.ncbi.nlm.nih.gov/pathogens/isolates#refgene/">Browse a curated database of AMR genes</a></p></li>
-<li><p>Identify AMR genes in bacterial genomes with <a href="https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/">AMRFinder</a></p></li>
-<li><p>Identify bacterial genomes with AMR genes in the <a href="https://www.ncbi.nlm.nih.gov/pathogens/isolates#/search/">Isolate Browser</a></p></li>
-<li><p><a href="https://www.ncbi.nlm.nih.gov/pathogens/submit">Submit sequence and phenotype data related to AMR</a></p></li>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/pathogens/isolates#refgene/"><strong>Browse a curated database of AMR genes</strong></a></p></li>
+<li><p><strong>Identify AMR genes in bacterial genomes with <a href="https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/">AMRFinder</a></strong></p></li>
+<li><p><strong>Identify bacterial genomes with AMR genes in the <a href="https://www.ncbi.nlm.nih.gov/pathogens/isolates#/search/">Isolate Browser</a></strong></p></li>
+<li><p><a href="https://www.ncbi.nlm.nih.gov/pathogens/submit"><strong>Submit sequence and phenotype data related to AMR</strong></a></p></li>
 </ul>
-<p>Link to NDARO:&nbsp;<a href="https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/" class="uri">https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/</a></p>
+<p><strong>Link to NDARO:</strong>&nbsp;<a href="https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/" class="uri">https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/</a></p>
 </section>
 <section id="meet-the-team" class="slide level2 smaller">
 <h2>Meet the Team</h2>

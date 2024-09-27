@@ -18,25 +18,25 @@ This large-scale study includes a total of 9,251 samples collected from various 
 
 ## Aims of the study {.smaller}
 
--   This study explores how antibiotic use affects the abundance and diversity of resistance genes (ARGs) in the human gut.
+-   This study explores how **antibiotic use** affects the **abundance** and **diversity** of *resistance genes (ARGs)* in the human gut.
 
--   Analyzing samples from healthy individuals, it finds links between national antibiotic usage and ARG prevalence, while also examining ARG transfer and resistotype patterns in the gut.
+-   Analyzing samples from **healthy individuals**, it finds links between **national antibiotic usage** and **ARG prevalence**, while also examining **ARG transfer** and **resistotype patterns** in the gut.
 
 ## Methods: Data Collection & Compilation {.smaller}
 
--   Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download
+-   **Raw Illumina sequencing reads** from NCBI or EMBL using *Kingfisher-download*
 
--   Metagenomic assemblies retrieved from the paper "Extensive unexplored human microbiome diversity revealed by over 150,000 genomes from metagenomes spanning age, geography, and lifestyle" ([*Pasoli et al., 2019*](https://www.cell.com/cell/fulltext/S0092-8674(19)30001-7))
+-   **Metagenomic assemblies** retrieved from the paper "*Extensive unexplored human microbiome diversity revealed by over 150,000 genomes from metagenomes spanning age, geography, and lifestyle*" ([*Pasoli et al., 2019*](https://www.cell.com/cell/fulltext/S0092-8674(19)30001-7))
 
--   6104 adult gut metagenome samples from 20 countries after refinning
+-   **6104 adult gut metagenome samples** from **20 countries** after refinning
 
--   curatedMetagenomeData R package for retrieving the sample metadata
+-   **curatedMetagenomeData** R package for retrieving the sample metadata
 
--   Manually curated ARG families from CARD database (n=752)   
+-   **Manually curated ARG families** from **CARD database** (*n=752*)   
 
 ## Sample Distribution by Body Site {.smaller}
 
-The dataset comprises samples from six major body sites, with the distribution as follows:
+The dataset comprises samples from **six major body sites**, with the distribution as follows:
 
 ```{r}
 library(ggplot2)
@@ -143,11 +143,9 @@ The data has been carefully subsetted to include samples that meet specific crit
 
 -   **Age Category:** Included only **adult subjects**.
 
-<!-- -->
-
 -   **SCGs:** Selected samples with all **40 Single-Copy Genes (SCGs)** recovered .
 
-This subset of the data, now represented as a `TreeSummarizedExperiment` (TSE) object, is optimized for further analysis and is available for advanced exploration of the antibiotic resistance gene (ARG) load, diversity, and related metadata.\
+This subset of the data, now represented as a `TreeSummarizedExperiment` *(TSE)* object, is optimized for further analysis and is available for advanced exploration of the **ARG load**, diversity, and related metadata.\
 To explore the metadata and access the object, visit [this link](https://github.com/microbiome/data/blob/main/Lee2023/README.md).
 
 ## Sample Metadata {.smaller}
@@ -222,19 +220,19 @@ combined_summary_df %>%
 
 ## **National Database of Antibiotic Resistant Organisms** {.smaller}
 
-National Database of Antibiotic Resistant Organisms **(**NDARO) is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.
+**National Database of Antibiotic Resistant Organisms (NDARO)** is a collaborative, cross-agency, centralized hub for researchers to access **AMR data** to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.
 
 NDARO allows:
 
--   [Browse a curated database of AMR genes](https://www.ncbi.nlm.nih.gov/pathogens/isolates#refgene/)
+-   [**Browse a curated database of AMR genes**](https://www.ncbi.nlm.nih.gov/pathogens/isolates#refgene/)
 
--   Identify AMR genes in bacterial genomes with [AMRFinder](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/)
+-   **Identify AMR genes in bacterial genomes with [AMRFinder](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/)**
 
--   Identify bacterial genomes with AMR genes in the [Isolate Browser](https://www.ncbi.nlm.nih.gov/pathogens/isolates#/search/)
+-   **Identify bacterial genomes with AMR genes in the [Isolate Browser](https://www.ncbi.nlm.nih.gov/pathogens/isolates#/search/)**
 
--   [Submit sequence and phenotype data related to AMR](https://www.ncbi.nlm.nih.gov/pathogens/submit)
+-   [**Submit sequence and phenotype data related to AMR**](https://www.ncbi.nlm.nih.gov/pathogens/submit)
 
-Link to NDARO: <https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/>
+**Link to NDARO:** <https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/>
 
 ## Meet the Team {.smaller}
 
