@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/tabby.min.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.555">
+<script src="data_summary_files/libs/clipboard/clipboard.min.js"></script>
+<script src="data_summary_files/libs/quarto-html/tabby.min.js"></script>
+<script src="data_summary_files/libs/quarto-html/popper.min.js"></script>
+<script src="data_summary_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="data_summary_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="data_summary_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="data_summary_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="data_summary_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.553">
 
   <title>Data Summary</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="data_summary_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="data_summary_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,11 +29,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
-  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="data_summary_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="data_summary_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="data_summary_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="data_summary_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="data_summary_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -320,8 +320,10 @@
       margin-right: 0; 
     }
   </style>
-  <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-  <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+  <script src="data_summary_files/libs/kePrint-0.0.1/kePrint.js"></script>
+
+  <link href="data_summary_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -350,16 +352,10 @@
 <h2>Methods: Data Collection &amp; Compilation</h2>
 <ul>
 <li><p>Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download</p></li>
-<li><p>Metagenomic assemblies retrieved from the paper <a href="https://www.cell.com/cell/fulltext/S0092-8674(19)30001-7">“Extensive unexplored human microbiome diversity revealed by over 150,000 genomes from metagenomes spanning age, geography, and lifestyle”</a></p></li>
-</ul>
-<!-- -->
-<ul>
+<li><p>Metagenomic assemblies retrieved from the paper “Extensive unexplored human microbiome diversity revealed by over 150,000 genomes from metagenomes spanning age, geography, and lifestyle” (<a href="https://www.cell.com/cell/fulltext/S0092-8674(19)30001-7"><em>Pasoli et al., 2019</em></a>)</p></li>
 <li><p>6104 adult gut metagenome samples from 20 countries after refinning</p></li>
 <li><p>curatedMetagenomeData R package for retrieving the sample metadata</p></li>
-</ul>
-<!-- -->
-<ul>
-<li>Manually curated ARG families from CARD database (n=752)&nbsp; &nbsp;</li>
+<li><p>Manually curated ARG families from CARD database (n=752)&nbsp; &nbsp;</p></li>
 </ul>
 </section>
 <section id="sample-distribution-by-body-site" class="slide level2 smaller">
@@ -391,8 +387,9 @@ To explore the metadata and access the object, visit <a href="https://github.com
 <p>The subsetted dataset contains key metadata that provides context to each sample.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <div class="table-responsive">
-<table class="table table-striped table-hover table-condensed caption-top" data-quarto-postprocess="true" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table table-striped table-hover table-condensed" data-quarto-postprocess="true" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -493,9 +490,7 @@ Summary of Features
 
 </div>
 </div>
-</section>
-<section id="distribution-of-sample-metadata" class="slide level2 smaller">
-<h2>Distribution of Sample Metadata</h2>
+</div>
 <p><img data-src="images/age_category.png"></p>
 <p><img data-src="images/age_years.png"></p>
 <p><img data-src="images/gender.png"></p>
@@ -504,18 +499,11 @@ Summary of Features
 <p><img data-src="images/ab_exposure.png"></p>
 <p><img data-src="images/body_subsite.png"></p>
 <p><img data-src="images/BMI.png"></p>
-<p><img data-src="images/NumReads.png"></p>
-<p><img data-src="images/numBases.png"></p>
-<p><img data-src="images/median_read_length.png"></p>
 </section>
 <section id="taxanomic-diversity" class="slide level2 smaller">
 <h2>Taxanomic Diversity</h2>
 
 <img data-src="images/kingdom.png" class="r-stretch"></section>
-<section id="pathogen-analysis" class="slide level2 smaller">
-<h2>Pathogen Analysis</h2>
-
-<img data-src="images/human_pathogen.png" class="r-stretch"></section>
 <section id="national-database-of-antibiotic-resistant-organisms" class="slide level2 smaller">
 <h2><strong>National Database of Antibiotic Resistant Organisms</strong></h2>
 <p>National Database of Antibiotic Resistant Organisms <strong>(</strong>NDARO) is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO is part of the National Action Plan for Combating Antibiotic-Resistant Bacteria developed by the White House in 2015.</p>
@@ -527,7 +515,6 @@ Summary of Features
 <li><p><a href="https://www.ncbi.nlm.nih.gov/pathogens/submit">Submit sequence and phenotype data related to AMR</a></p></li>
 </ul>
 <p>Link to NDARO:&nbsp;<a href="https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/" class="uri">https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/</a></p>
-
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
@@ -538,19 +525,19 @@ Summary of Features
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <script src="data_summary_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="data_summary_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="data_summary_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="data_summary_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="data_summary_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="data_summary_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="site_libs/revealjs/plugin/search/search.js"></script>
-  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script src="data_summary_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="data_summary_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="data_summary_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="data_summary_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -745,42 +732,80 @@ Summary of Features
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {

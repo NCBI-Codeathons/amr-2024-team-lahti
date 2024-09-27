@@ -26,18 +26,12 @@ This large-scale study includes a total of 9,251 samples collected from various 
 
 -   Raw Illumina sequencing reads from NCBI or EMBL using Kingfisher-download
 
--   Metagenomic assemblies retrieved from the paper ["Extensive unexplored human microbiome diversity revealed by over 150,000 genomes from metagenomes spanning age, geography, and lifestyle"](https://www.cell.com/cell/fulltext/S0092-8674(19)30001-7)
+-   Metagenomic assemblies retrieved from the paper "Extensive unexplored human microbiome diversity revealed by over 150,000 genomes from metagenomes spanning age, geography, and lifestyle" ([*Pasoli et al., 2019*](https://www.cell.com/cell/fulltext/S0092-8674(19)30001-7))
 
-```{=html}
-<!-- -->
-```
 -   6104 adult gut metagenome samples from 20 countries after refinning
 
 -   curatedMetagenomeData R package for retrieving the sample metadata
 
-```{=html}
-<!-- -->
-```
 -   Manually curated ARG families from CARD database (n=752)   
 
 ## Sample Distribution by Body Site {.smaller}
@@ -149,9 +143,8 @@ The data has been carefully subsetted to include samples that meet specific crit
 
 -   **Age Category:** Included only **adult subjects**.
 
-```{=html}
 <!-- -->
-```
+
 -   **SCGs:** Selected samples with all **40 Single-Copy Genes (SCGs)** recovered .
 
 This subset of the data, now represented as a `TreeSummarizedExperiment` (TSE) object, is optimized for further analysis and is available for advanced exploration of the antibiotic resistance gene (ARG) load, diversity, and related metadata.\
@@ -211,8 +204,6 @@ combined_summary_df %>%
 
 ```
 
-## Distribution of Sample Metadata {.smaller}
-
 ![](images/age_category.png)
 
 ![](images/age_years.png)
@@ -248,4 +239,3 @@ NDARO allows:
 -   [Submit sequence and phenotype data related to AMR](https://www.ncbi.nlm.nih.gov/pathogens/submit)
 
 Link to NDARO: <https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/>
-
