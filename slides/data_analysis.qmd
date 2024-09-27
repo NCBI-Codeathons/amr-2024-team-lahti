@@ -18,8 +18,8 @@ The tutorial provides the framework developed by integrating R/Bioconductor pack
 
 ## Install and load required packages
 
-```{r message=FALSE, warning=FALSE}
-packages <- c('mia', 'miaViz', 'scater', 'ComplexHeatmap', 'pheatmap')
+```{r message=FALSE, warning=FALSE install-package}
+packages <- c('mia', 'miaViz', 'scater', 'ComplexHeatmap', 'pheatmap', 'dplyr')
 
 # Get packages that are already installed installed
 packages_already_installed <- packages[ packages %in% installed.packages() ]
@@ -44,8 +44,8 @@ lapply(packages, require, character.only = TRUE)
 
 ## Load and explore data
 
-```{r}
-data("Lee2023", package = "teamlahti" )
+```{r load-data}
+tse <- load('../data/Lee2023.rda')
 tse <- Lee2023
 tse
 ```
@@ -59,14 +59,14 @@ The data is of class TreeSummarizedExperiment (TSE) with following data containe
 
 -   **colData**: This is data about the samples
 
--   **Alternative experiments (altExp)**: Any alternative counts table or experiments are stored in this slot. In our case we have added another TSE object with abundance of antibiotic resistance genes in our samples. In our case there are two alternative experiments namely, '*read*' and '*assembly*'. We will be focusing on '*read*' based experiment.
+-   **Alternative experiments (altExp)**: Any alternative counts table or experiments are stored in this slot. In our case we have added another TSE object with abudance of antibiotic resistance genes in our samples. In our case there are two alternative experiments namely, '*read*' and '*assembly*'. We will be focussing on '*read*' based experiment.
 
 **Note**: Read more about data containers on our book, [**Orchestrating Microbiome Analysis with Bioconductor**](https://microbiome.github.io/OMA/) ([Lahti et al. 2021](https://microbiome.github.io/OMA/docs/devel/#ref-OMA)).
 
-In this tutorial we will be focusing on analysing the AMR data, present in altExp container.
+In this tutorial we will be focussing on analysing the AMR data, present in altExp container.
 :::
 
-```{r}
+```{r alt-exp}
 altExp(tse, 'read')
 ```
 
@@ -74,26 +74,26 @@ As this is also an TSE object, it has the sample containers like assays, rowData
 
 **Assay**: contains the abundances of AMR genes in samples
 
-```{r}
+```{r assay}
 head(assay(altExp(tse, 'read'))[,1:3])
 ```
 
 **colData**: contains information about samples
 
-```{r}
+```{r colData}
 head(colData(altExp(tse, 'read')))
 ```
 
 It does not have any colData so lets add colData from our original TSE object
 
-```{r}
+```{r add-colData}
 colData(altExp(tse, 'read')) <- colData(tse)
 head(colData(altExp(tse, 'read'))[,5:9])
 ```
 
 **rowData**: contains information about AMRs (features in row of assay)
 
-```{r}
+```{r rowData}
 head(rowData(altExp(tse, 'read')))
 ```
 
@@ -103,13 +103,13 @@ Lets try to make some plots and explore the quality of data.
 
 First, lets transform the data into relative abundance
 
-```{r}
+```{r relabundance}
 altExp(tse, 'read') <- transformAssay(altExp(tse, 'read'),assay.type = 'abundances', method = 'relabundance')
 ```
 
 Now, lets plot the jitter plot based on relative abundance data, similar to the one presented at ([Salosensaari et al. 2021](https://microbiome.github.io/OMA/docs/devel/pages/quality_control.html#ref-Salosensaari2021)) (Supplementary Fig.1), can be visualized as follows:
 
-```{r}
+```{r plot-density1}
 plotAbundanceDensity(
   altExp(tse, 'read'), layout = "jitter",
   assay.type = "relabundance",
@@ -120,7 +120,7 @@ plotAbundanceDensity(
 
 The relative abundance values for the top-10 AMR genes can be visualized as a density plot over a log-scaled axis, with “Westernized” variable indicated by colors:
 
-```{r}
+```{r plot-density2}
 plotAbundanceDensity(
   altExp(tse, 'read'), layout = "density",
   assay.type = "relabundance",
@@ -131,9 +131,9 @@ plotAbundanceDensity(
 
 This plot gives an idea about the abundances of some AMRs like tetQ are more in westernized population.
 
-Lets agglomerate data based on antibiotic class present in rowData and see the same plots at antibiotics class level:
+Lets agglomerate data based on anitbiotic class present in rowData and see the same plots at antibiotics class level:
 
-```{r}
+```{r plot-density3}
 # Agglomerate
 altExp(tse, 'read_abclass') <- agglomerateByVariable(
                                   x = altExp(tse, 'read'),
@@ -157,7 +157,7 @@ Alpha diversity can be estimated with [`addAlpha()`](https://rdrr.io/pkg/mia/man
 
 These functions calculate the given indices, and add them to the `colData` slot of the `SummarizedExperiment` object with the given `name.`
 
-```{r}
+```{r alpha-div}
 # calculate observed alpha diversity and add it to colData slot
 altExp(tse, 'read') <- addAlpha(
   altExp(tse, 'read'), assay.type = "abundances", index = "shannon_diversity", name = "shannon_diversity",
@@ -170,14 +170,14 @@ plotColData(
     "Disease",
     colour_by = "Disease") +
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-    labs(expression(Richness[Observed]))
+  xlab('Host status')
 ```
 
 ### Unsupervised ordinations
 
 Unsupervised ordination methods analyze variation in the data without additional information on covariates or other supervision of the model. Among the different approaches, Multi-Dimensional Scaling (MDS) and non-metric MDS (NMDS) can be regarded as the standard. They are jointly referred to as PCoA.
 
-```{r}
+```{r ordination}
 # Run PCoA on relabundance assay with Bray-Curtis distances
 altExp(tse, 'read') <- runMDS(
     altExp(tse, 'read'),
@@ -189,7 +189,7 @@ altExp(tse, 'read') <- runMDS(
 
 Sample dissimilarity can be visualized on a lower-dimensional display (typically 2D) using the [`plotReducedDim()`](https://rdrr.io/pkg/scater/man/plotReducedDim.html) function from the `scater` package. This also provides tools to incorporate additional information encoded by color, shape, size and other aesthetics.
 
-```{r}
+```{r ordination-plot}
 # Create ggplot object
 p <- plotReducedDim(altExp(tse, 'read'), "MDS_bray", colour_by = "Disease")
 
@@ -210,7 +210,7 @@ A few combinations of beta diversity metrics and assay types are typically used.
 
 ## Heatmaps
 
-```{r}
+```{r heatmap}
 # tranform assay with CLR
 altExp(tse, "read_abclass") <- transformAssay(altExp(tse, "read_abclass"), MARGIN = "samples", method = "clr", assay.type = "relabundance", pseudocount=TRUE)
 
@@ -229,3 +229,85 @@ rownames(col_ann) <- rownames(colData(altExp(tse, 'read_abclass'))[colnames(mat)
 
 pheatmap(mat,annotation_col = col_ann,show_colnames = F)
 ```
+
+## Antibiotic Susceptibility (NDARO)
+
+[National Database of Antibiotic Resistant Organisms](https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/) (NDARO) is a collaborative, cross-agency, centralized hub for researchers to access AMR data to facilitate real-time surveillance of pathogenic organisms. NDARO hosts [Antibiotic Susceptibility Test](https://www.ncbi.nlm.nih.gov/pathogens/ast/) (AST) browser with data on laboratory typing and antibioti ausceptibility from clinical and environmental isolates. The data provides a good opportunity to study the coverage of antibiotic resistant/susceptible organisms in human microbiome context.
+
+Here, we will integrate the AST data with our metagenome data analysis.
+
+```{r}
+df.asts <- read.table(file = gzfile('../data/asts.tsv.gz'),header = T,sep = '\t')
+```
+
+Let's explore Clostridioides difficile infection (CDI) infection samples from our metagenomic data.
+
+```{r ast-1}
+# Subset CDI samples
+tse.clean <- tse[,!is.na(colData(tse)$Disease)]
+tse.cdi <- tse.clean[,colData(tse.clean)$Disease == 'CDI']
+
+# take list of species present in our samples
+tse.taxa.list <- rowData(tse.cdi)$Species
+# clean species names
+tse.taxa.list <- tse.taxa.list %>% gsub('s__','',.) %>% gsub('_', ' ', .)
+# add cleaned specie names in TSE
+rowData(tse.cdi)$Species_cleaned <- tse.taxa.list
+
+# subset tse for species present in AST and our samples
+tse.sub <- tse.cdi[tse.taxa.list %in% df.asts$Scientific.name,]
+
+# create IDs to species names list
+id2species <- rowData(tse.sub)$Species
+names(id2species) <- as.numeric(rownames(rowData(tse.sub)))
+
+# check prevalence of species
+# get prevalent
+prev.df <- getPrevalence(tse.sub,assay.type='relabundance', detection = 1/100, sort = TRUE, as.relative = TRUE)
+
+prev.df <- data.frame(
+  Prevalence = prev.df,
+  Species = id2species[names(prev.df)]
+)
+
+head(prev.df, 5)
+```
+
+As we can see, *Clostridioides difficile*, *Pseudomonas aeruginosa* and *Pseudomonas putida* are prevalent in our samples with CDI.
+
+Let's now explore the data available in AST browser about these species.
+
+```{r ast-2}
+
+df.asts.sub <- df.asts[df.asts$Organism.group %in% c('Clostridioides difficile', 'Pseudomonas aeruginosa', 'Pseudomonas putida'),]
+
+# Isolation types
+ggplot(data = df.asts.sub,mapping = aes(x = Isolation.type, fill = Organism.group)) + geom_histogram(stat="count", position = 'dodge') + theme_bw()
+```
+
+The plot suggests that *Pseudomonas aeruginosa* has more evidences from clinical studies about the antibiotics resistant/susceptibility. Let's now explore different antibiotics options available for *Pseudomonas aeruginosa.*
+
+```{r ast-3}
+df.asts.sub.pa <- df.asts.sub[df.asts.sub$Organism.group == 'Pseudomonas aeruginosa',]
+
+length(unique(df.asts.sub.pa$Antibiotic))
+
+# select top 5 highly studied antibiotics
+top5 <- sort(table(df.asts.sub.pa$Antibiotic),decreasing = T)[1:5]
+top5
+
+# % evidences covered by top5 antibiotics
+(sum(top5)/dim(df.asts.sub.pa)[1]) * 100
+
+
+```
+
+Let's try to explore the phenotypes of this anitbiotics for *Pseudomonas aeruginosa*:
+
+```{r ast-4}
+df.asts.sub.pa.top5 <- df.asts.sub.pa[df.asts.sub.pa$Antibiotic %in% names(top5),]
+
+ggplot(data = df.asts.sub.pa.top5,mapping = aes(x = Antibiotic, fill = Antibiotic)) + geom_histogram(stat = 'count') + facet_wrap(~Resistance.phenotype) + theme_bw() + theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
+```
+
+The analysis suggests that, *Pseudomonas aeruginosa* is highly resistant to ciprofloxacin and succeptible to cefepime. But there are certain strains which can be both resistant/succeptible to both the anitbiotics.
