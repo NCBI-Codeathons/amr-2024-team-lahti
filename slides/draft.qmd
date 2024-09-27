@@ -10,30 +10,34 @@ format:
     transition: slide
 ---
 
-## Team home page 
+## Team home page
+
 ![](images/Team_homepage.png)
 
 ## Data analysis
 
 ## Team Members
 
-<div style="display: flex; justify-content: space-between;">
+::: columns
+::: {.column width="50%"}
+**Leo Lahti** (Team Lead)
 
-  <!-- Team members list on the left -->
-  <div>
-    - **Leo Lahti** (Team Lead)  
-    - **Akewak Jeba** (Teach Lead)  
-    - **Muluh Geraldson** (Tech Lead)
-    - **Nitin Bayal** (Writer)
-    - **Dattatraya Mongad** (Writer)
-    - **Shivang Bhanushali** (Flex)
-    - **Mahkameh Salehi** (Flex)
-  </div>
+**Muluh Geraldson** (Tech Lead)
 
-  <!-- Logos on the right -->
-  <div style="text-align: right;">
-    <img src="UTU_logo.png" width="100" /><br><br>
-    <img src="Research_council.png" width="100" />
-  </div>
+**Akewak Jeba** (Tech Lead)
 
-</div>
+**Nitin Bayal** (Writer)
+
+**Dattaray Mongad** (Writer)
+
+**Shivang Bhanushali** (Flex)
+
+**Mahkameh Salehi** (Flex)
+:::
+
+::: {.column width="50%"}
+![](images/UTU_logo.png)
+
+![](images/Research_council.png)
+:::
+:::
